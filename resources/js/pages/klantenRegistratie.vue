@@ -1,41 +1,48 @@
 <script setup>
-import { ref } from "vue";
 </script>
 
 <template>
-    <div class="w-full h-screen">
+    <div class="w-full h-full">
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
-            class="w-full h-full bg-cover bg-center"
+            class="w-full h-screen bg-cover bg-center"
         >
-            <h1 class="flex justify-center top-20">PawHaven</h1>
-            <div class="flex justify-center items-center">
+            <h1 class="flex justify-center text-white text-4xl">PawHaven</h1>
+            <div class="flex justify-center relative">
                 <div
-                    class="rounded-[41px] border-solid border-white bg-white opacity-22 border-white w-200 h-60 blur-[50]"
-                >
-                    <div class="flex flex-col">
+                    class="absolute z-0 rounded-[41px] border-sm border-solid border-white bg-white opacity-22 w-250 h-100 backdrop-blur-[50]"
+                ></div>
+                <div class="flex flex-row z-40 relative gap-30">
+                    <div>
                         <div>
-                            <p class="text-white">Voornaam</p>
-                            <div class="rounded-full bg-white"></div>
+                            <p class="text-white">Voornaam*:</p>
+                            <input type="text" class="rounded-full bg-white w-full px-4 py-2" />
                         </div>
                         <div>
-                            <p>Achternaam</p>
-                            <div></div>
+                            <p class="text-white">Achternaam*:</p>
+                            <input type="text" class="rounded-full bg-white w-full px-4 py-2" />
                         </div>
                         <div>
-                            <p>Email</p>
-                            <div></div>
+                            <p class="text-white">Email*:</p>
+                            <input type="email" class="rounded-full bg-white w-full px-4 py-2" />
                         </div>
                         <div>
-                            <p>Telefoonnummer</p>
-                            <div></div>
+                            <p class="text-white">Telefoonnummer*:</p>
+                            <input type="tel" class="rounded-full bg-white w-full px-4 py-2" />
+                        </div>
+                        <p class="text-black">Al een klant? • Inloggen</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="text-white">Wachtwoord*:</p>
+                            <input type="password" class="rounded-full bg-white w-full px-4 py-2" />
                         </div>
                         <div>
-                            <p>Wachtwoord</p>
-                            <div></div>
+                            <p class="text-white">Wachtwoord herhalen:</p>
+                            <input type="password" class="rounded-full bg-white w-full px-4 py-2" />
                         </div>
-                        <div>
-                            <p>Bevestig Wachtwoord</p>
+                        <div class="text-white border-white">
+                            <p >Registreren als Klant</p>
                             <div></div>
                         </div>
                     </div>

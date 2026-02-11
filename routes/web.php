@@ -4,5 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\klantenRegistratieController;
 
-Route::get('/', [klantenRegistratieController::class, 'index'])->name('registratieKlanten');
+Route::get('/', [logInController::class, 'index'])->name('logIn');
+
+Route::get('/Registratie', [klantenRegistratieController::class, 'index'])->name('registratieKlanten');
 
