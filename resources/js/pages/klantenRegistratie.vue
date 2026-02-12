@@ -1,7 +1,6 @@
 <script setup>
 import { reactive } from "vue";
 import { Inertia } from "@inertiajs/inertia";
-// import { useForm } from "@inertiajs/inertia-vue3";
 
 const form = reactive({
     RegiFirstName: "",
@@ -12,14 +11,6 @@ const form = reactive({
     RegiPasswordConfirm: "",
 });
 
-// const form = useForm({
-//     RegiFirstName: "",
-//     RegiLastName: "",
-//     RegiEmail: "",
-//     RegiPhoneNumber: "",
-//     RegiPassword: "",
-//     RegiPasswordConfirm: "",
-// });
 
 // Send data to Laravel
 Inertia.post("/registratie", {
