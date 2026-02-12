@@ -1,9 +1,18 @@
 <script setup>
-// import { reactive } from "vue";
-// import { Inertia } from "@inertiajs/inertia";
-import { useForm } from "@inertiajs/inertia-vue3";
+import { reactive } from "vue";
+import { Inertia } from "@inertiajs/inertia";
+// import { useForm } from "@inertiajs/inertia-vue3";
 
-// const form = reactive({
+const form = reactive({
+    RegiFirstName: "",
+    RegiLastName: "",
+    RegiEmail: "",
+    RegiPhoneNumber: "",
+    RegiPassword: "",
+    RegiPasswordConfirm: "",
+});
+
+// const form = useForm({
 //     RegiFirstName: "",
 //     RegiLastName: "",
 //     RegiEmail: "",
@@ -12,14 +21,15 @@ import { useForm } from "@inertiajs/inertia-vue3";
 //     RegiPasswordConfirm: "",
 // });
 
-    const form = useForm({
-        RegiFirstName: "",
-        RegiLastName: "",
-        RegiEmail: "",
-        RegiPhoneNumber: "",
-        RegiPassword: "",
-        RegiPasswordConfirm: "",
-    });
+// Send data to Laravel
+Inertia.post("/registratie", {
+    RegiFirstName: form.RegiFirstName,
+    RegiLastName: form.RegiLastName,
+    RegiEmail: form.RegiEmail,
+    RegiPhoneNumber: form.RegiPhoneNumber,
+    RegiPassword: form.RegiPassword,
+    RegiPassword_confirmation: form.RegiPasswordConfirm,
+});
 
 const submit = () => {
     if (form.RegiPassword !== form.RegiPasswordConfirm) {
@@ -27,21 +37,11 @@ const submit = () => {
         return;
     }
 
-    // Send data to Laravel
-    // Inertia.post("/registratie", {
-    //     RegiFirstName: form.RegiFirstName,
-    //     RegiLastName: form.RegiLastName,
-    //     RegiEmail: form.RegiEmail,
-    //     RegiPhoneNumber: form.RegiPhoneNumber,
-    //     RegiPassword: form.RegiPassword,
-    //     RegiPassword_confirmation: form.RegiPasswordConfirm,
+    // form.post("/registratie", {
+    //     onSuccess: () => {
+    //         form.reset();
+    //     },
     // });
-
-    form.post("/registratie", {
-        onSuccess: () => {
-            form.reset();
-        },
-    });
 };
 </script>
 

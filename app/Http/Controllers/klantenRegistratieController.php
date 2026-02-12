@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
+use Illuminate\Routing\Controller;
 
 class klantenRegistratieController extends Controller
 {
@@ -34,7 +35,7 @@ class klantenRegistratieController extends Controller
         
         $register->password = bcrypt(request('RegiPassword'));
 
-		// dd($register);
+		dd($register);
 
         $register->save();
         
