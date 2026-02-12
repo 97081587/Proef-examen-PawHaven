@@ -35,7 +35,7 @@ class klantenRegistratieController extends Controller
         
         $register->password = bcrypt(request('RegiPassword'));
 
-		dd($register);
+		// dd($register);
 
         $register->save();
         

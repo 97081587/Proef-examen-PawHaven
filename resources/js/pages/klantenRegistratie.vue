@@ -1,8 +1,9 @@
 <script setup>
-import { reactive } from "vue";
+// import { reactive } from "vue";
+import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 
-const form = reactive({
+const form = useForm({
     RegiFirstName: "",
     RegiLastName: "",
     RegiEmail: "",
@@ -11,28 +12,27 @@ const form = reactive({
     RegiPasswordConfirm: "",
 });
 
-
-// Send data to Laravel
-Inertia.post("/registratie", {
-    RegiFirstName: form.RegiFirstName,
-    RegiLastName: form.RegiLastName,
-    RegiEmail: form.RegiEmail,
-    RegiPhoneNumber: form.RegiPhoneNumber,
-    RegiPassword: form.RegiPassword,
-    RegiPassword_confirmation: form.RegiPasswordConfirm,
-});
-
 const submit = () => {
     if (form.RegiPassword !== form.RegiPasswordConfirm) {
         alert("Passwords do not match");
         return;
     }
 
-    // form.post("/registratie", {
-    //     onSuccess: () => {
-    //         form.reset();
-    //     },
-    // });
+    form.post("/registratie", {
+        onSuccess: () => {
+            form.reset();
+        },
+    });
+
+    // Send data to Laravel
+    Inertia.post("/registratie", {
+        RegiFirstName: form.RegiFirstName,
+        RegiLastName: form.RegiLastName,
+        RegiEmail: form.RegiEmail,
+        RegiPhoneNumber: form.RegiPhoneNumber,
+        RegiPassword: form.RegiPassword,
+        RegiPassword_confirmation: form.RegiPasswordConfirm,
+    });
 };
 </script>
 
