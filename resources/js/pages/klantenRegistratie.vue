@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
     <div class="w-full h-full">
@@ -7,43 +6,83 @@
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
             class="w-full h-screen bg-cover bg-center"
         >
-            <h1 class="flex justify-center text-white text-4xl">PawHaven</h1>
-            <div class="flex justify-center relative">
+            <div class="absolute inset-0 bg-black/25"></div>
+            <h1
+                class="flex justify-center text-white text-4xl top-32 relative font-delius-swash-caps-regular"
+            >
+                PawHaven
+            </h1>
+            <div class="flex justify-center top-50 relative">
                 <div
-                    class="absolute z-0 rounded-[41px] border-sm border-solid border-white bg-white opacity-22 w-250 h-100 backdrop-blur-[50]"
-                ></div>
-                <div class="flex flex-row z-40 relative gap-30">
-                    <div>
-                        <div>
-                            <p class="text-white">Voornaam*:</p>
-                            <input type="text" class="rounded-full bg-white w-full px-4 py-2" />
+                    class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
+                >
+                    <!-- </div> -->
+                    <div
+                        class="flex justify-center flex-row z-40 relative gap-30 mt-7"
+                    >
+                        <div class="gap-">
+                            <div>
+                                <p class="text-white">Voornaam*:</p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">Achternaam*:</p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">Email*:</p>
+                                <input
+                                    type="email"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">Telefoonnummer*:</p>
+                                <input
+                                    type="tel"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <p class="text-black opacity-[0.54]">
+                                Al een klant? • Inloggen
+                            </p>
                         </div>
                         <div>
-                            <p class="text-white">Achternaam*:</p>
-                            <input type="text" class="rounded-full bg-white w-full px-4 py-2" />
-                        </div>
-                        <div>
-                            <p class="text-white">Email*:</p>
-                            <input type="email" class="rounded-full bg-white w-full px-4 py-2" />
-                        </div>
-                        <div>
-                            <p class="text-white">Telefoonnummer*:</p>
-                            <input type="tel" class="rounded-full bg-white w-full px-4 py-2" />
-                        </div>
-                        <p class="text-black">Al een klant? • Inloggen</p>
-                    </div>
-                    <div>
-                        <div>
-                            <p class="text-white">Wachtwoord*:</p>
-                            <input type="password" class="rounded-full bg-white w-full px-4 py-2" />
-                        </div>
-                        <div>
-                            <p class="text-white">Wachtwoord herhalen:</p>
-                            <input type="password" class="rounded-full bg-white w-full px-4 py-2" />
-                        </div>
-                        <div class="text-white border-white">
-                            <p >Registreren als Klant</p>
-                            <div></div>
+                            <div>
+                                <p class="text-white">Wachtwoord*:</p>
+                                <input
+                                    type="password"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">Wachtwoord herhalen:</p>
+                                <input
+                                    type="password"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div
+                                class=" top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
+                            >
+                                <div
+                                    class="flex flex-col justify-center items-center gap-2 mt-5"
+                                >
+                                    <p class="text-white text-[25px]">
+                                        Registreren als Klant
+                                    </p>
+                                    <p class="text-white text-[10px]">
+                                        Hierna wordt u doorgestuurd naar de
+                                        login pagina.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
