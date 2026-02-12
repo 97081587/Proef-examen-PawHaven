@@ -8,7 +8,7 @@
         >
             <div class="absolute inset-0 bg-black/25"></div>
             <h1
-                class="flex justify-center text-white text-4xl top-32 relative font-delius-swash-caps-regular"
+                class="flex justify-center text-white text-4xl top-32 relative font-delius"
             >
                 PawHaven
             </h1>
