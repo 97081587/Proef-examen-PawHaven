@@ -49,9 +49,9 @@
                                     class="rounded-full bg-white w-full px-4 py-2"
                                 />
                             </div>
-                            <p class="text-black opacity-[0.54]">
+                            <a href="/" class="text-black opacity-[0.54]">
                                 Al een klant? • Inloggen
-                            </p>
+                            </a>
                         </div>
                         <div>
                             <div>
@@ -68,8 +68,8 @@
                                     class="rounded-full bg-white w-full px-4 py-2"
                                 />
                             </div>
-                            <div
-                                class=" top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
+                            <a
+                               href="/" class=" top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
@@ -82,7 +82,7 @@
                                         login pagina.
                                     </p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
