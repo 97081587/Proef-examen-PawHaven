@@ -1,10 +1,32 @@
-<script setup></script>
+<script setup>
+import { reactive } from 'vue'
+import { Inertia } from '@inertiajs/inertia'
+
+const form = reactive({
+  RegiFirstName: '',
+  RegiLastName: '',
+  RegiEmail: '',
+  RegiPhoneNumber: '',
+  RegiPassword: '',
+  RegiPasswordConfirm: ''
+})
+
+const submit = () => {
+  if (form.RegiPassword !== form.RegiPasswordConfirm) {
+    alert('Passwords do not match')
+    return
+  }
+
+  // Send data to Laravel
+  Inertia.post('/registratie', form)
+}
+</script>
 
 <template>
     <div class="w-full h-full">
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
-            class="w-full h-screen bg-cover bg-center"
+            class="w-full h-screen bg-cover bg-center relative"
         >
             <div class="absolute inset-0 bg-black/25"></div>
             <h1
@@ -12,12 +34,12 @@
             >
                 PawHaven
             </h1>
+
             <div class="flex justify-center top-50 relative">
                 <div
                     class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
                 >
-                    <!-- </div> -->
-                    <div
+                    <form @submit.prevent="submit"
                         class="flex justify-center flex-row z-40 relative gap-30 mt-7"
                     >
                         <div class="gap-">
@@ -26,6 +48,7 @@
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiFirstName"
                                 />
                             </div>
                             <div>
@@ -33,6 +56,7 @@
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiLastName"
                                 />
                             </div>
                             <div>
@@ -40,6 +64,7 @@
                                 <input
                                     type="email"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiEmail"
                                 />
                             </div>
                             <div>
@@ -47,6 +72,7 @@
                                 <input
                                     type="tel"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiPhoneNumber"
                                 />
                             </div>
                             <a href="/" class="text-black opacity-[0.54]">
@@ -59,6 +85,7 @@
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiPassword"
                                 />
                             </div>
                             <div>
@@ -66,9 +93,10 @@
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiPasswordConfirmation"
                                 />
                             </div>
-                            <a
+                            <a type="submit"
                                href="/" class=" top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
                             >
                                 <div
@@ -84,7 +112,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

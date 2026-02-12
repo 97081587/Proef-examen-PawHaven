@@ -7,6 +7,12 @@ use Inertia\Response;
 
 class klantenRegistratieController
 {
+
+	public function index(): Response
+	{
+		return Inertia::render('klantenRegistratie');
+	}
+	
 	public function registreren(Request $request) {
         $validatedData = $request->validate([
 			'RegiFirstName' => ['required', 'string', 'max:255'],
@@ -24,12 +30,15 @@ class klantenRegistratieController
         $register->password = $request['RegiPassword'];
         
         $register->password = bcrypt(request('RegiPassword'));
+
+		dd($register);
+
         $register->save();
         
         Session::put('registratie', $register);
 
         auth()->login($register);
 
-        return redirect('/');
+        return redirect()->route('/');;
     }
 }
