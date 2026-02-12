@@ -1,16 +1,25 @@
 <script setup>
-import { reactive } from "vue";
-import { Inertia } from "@inertiajs/inertia";
+// import { reactive } from "vue";
+// import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-vue3";
 
-const form = useForm({
-    RegiFirstName: "",
-    RegiLastName: "",
-    RegiEmail: "",
-    RegiPhoneNumber: "",
-    RegiPassword: "",
-    RegiPasswordConfirm: "",
-});
+// const form = reactive({
+//     RegiFirstName: "",
+//     RegiLastName: "",
+//     RegiEmail: "",
+//     RegiPhoneNumber: "",
+//     RegiPassword: "",
+//     RegiPasswordConfirm: "",
+// });
+
+    const form = useForm({
+        RegiFirstName: "",
+        RegiLastName: "",
+        RegiEmail: "",
+        RegiPhoneNumber: "",
+        RegiPassword: "",
+        RegiPasswordConfirm: "",
+    });
 
 const submit = () => {
     if (form.RegiPassword !== form.RegiPasswordConfirm) {
@@ -19,13 +28,19 @@ const submit = () => {
     }
 
     // Send data to Laravel
-    Inertia.post("/registratie", {
-        RegiFirstName: form.RegiFirstName,
-        RegiLastName: form.RegiLastName,
-        RegiEmail: form.RegiEmail,
-        RegiPhoneNumber: form.RegiPhoneNumber,
-        RegiPassword: form.RegiPassword,
-        RegiPassword_confirmation: form.RegiPasswordConfirm,
+    // Inertia.post("/registratie", {
+    //     RegiFirstName: form.RegiFirstName,
+    //     RegiLastName: form.RegiLastName,
+    //     RegiEmail: form.RegiEmail,
+    //     RegiPhoneNumber: form.RegiPhoneNumber,
+    //     RegiPassword: form.RegiPassword,
+    //     RegiPassword_confirmation: form.RegiPasswordConfirm,
+    // });
+
+    form.post("/registratie", {
+        onSuccess: () => {
+            form.reset();
+        },
     });
 };
 </script>
@@ -107,7 +122,7 @@ const submit = () => {
                             </div>
                             <button
                                 type="submit"
-                                class="top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
+                                class="rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"

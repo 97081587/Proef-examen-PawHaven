@@ -41,6 +41,6 @@ class klantenRegistratieController extends Controller
         Session::put('registratie', $register);
         auth()->login($register);
 
-        return redirect()->route('/');;
+        return redirect()->route('logIn');
     }
 }
