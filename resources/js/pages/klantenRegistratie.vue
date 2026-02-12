@@ -1,25 +1,32 @@
 <script setup>
-import { reactive } from 'vue'
-import { Inertia } from '@inertiajs/inertia'
+import { reactive } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const form = reactive({
-  RegiFirstName: '',
-  RegiLastName: '',
-  RegiEmail: '',
-  RegiPhoneNumber: '',
-  RegiPassword: '',
-  RegiPasswordConfirm: ''
-})
+    RegiFirstName: "",
+    RegiLastName: "",
+    RegiEmail: "",
+    RegiPhoneNumber: "",
+    RegiPassword: "",
+    RegiPasswordConfirm: "",
+});
 
 const submit = () => {
-  if (form.RegiPassword !== form.RegiPasswordConfirm) {
-    alert('Passwords do not match')
-    return
-  }
+    if (form.RegiPassword !== form.RegiPasswordConfirm) {
+        alert("Passwords do not match");
+        return;
+    }
 
-  // Send data to Laravel
-  Inertia.post('/registratie', form)
-}
+    // Send data to Laravel
+    Inertia.post("/registratie", {
+        RegiFirstName: form.RegiFirstName,
+        RegiLastName: form.RegiLastName,
+        RegiEmail: form.RegiEmail,
+        RegiPhoneNumber: form.RegiPhoneNumber,
+        RegiPassword: form.RegiPassword,
+        RegiPassword_confirmation: form.RegiPasswordConfirm,
+    });
+};
 </script>
 
 <template>
@@ -39,7 +46,8 @@ const submit = () => {
                 <div
                     class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
                 >
-                    <form @submit.prevent="submit"
+                    <form
+                        @submit.prevent="submit"
                         class="flex justify-center flex-row z-40 relative gap-30 mt-7"
                     >
                         <div class="gap-">
@@ -93,11 +101,12 @@ const submit = () => {
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiPasswordConfirmation"
+                                    v-model="form.RegiPasswordConfirm"
                                 />
                             </div>
-                            <a type="submit"
-                               href="/" class=" top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
+                            <button
+                                type="submit"
+                                class="top-60 absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
@@ -110,7 +119,7 @@ const submit = () => {
                                         login pagina.
                                     </p>
                                 </div>
-                            </a>
+                            </button>
                         </div>
                     </form>
                 </div>

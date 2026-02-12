@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
-use Inertia\Response;
 
-class klantenRegistratieController
+class klantenRegistratieController extends Controller
 {
 
-	public function index(): Response
+	public function index()
 	{
 		return Inertia::render('klantenRegistratie');
 	}
@@ -19,7 +22,7 @@ class klantenRegistratieController
 			'RegiLastName' => ['required', 'string', 'max:255'],
 			'RegiPhoneNumber' => ['required', 'string', 'max:255'],
             'RegiEmail' => ['required', 'email', Rule::unique('users', 'email')],
-            'RegiPassword' => ['required', 'min:3']
+            'RegiPassword' => ['required', 'min:3', 'confirmed'],
         ]);
 
         $register = new User();
@@ -31,12 +34,11 @@ class klantenRegistratieController
         
         $register->password = bcrypt(request('RegiPassword'));
 
-		dd($register);
+		// dd($register);
 
         $register->save();
         
         Session::put('registratie', $register);
-
         auth()->login($register);
 
         return redirect()->route('/');;

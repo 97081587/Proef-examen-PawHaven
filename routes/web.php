@@ -7,7 +7,6 @@ use App\Http\Controllers\logInController;
 
 Route::get('/', [logInController::class, 'index'])->name('logIn');
 
-// Route::get('/Registratie', [klantenRegistratieController::class, 'index'])->name('registratieKlanten');
 Route::get('/registratie', [KlantenRegistratieController::class, 'index']);
 Route::post('/registratie', [KlantenRegistratieController::class, 'registreren']);
 
