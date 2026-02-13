@@ -90,9 +90,11 @@ const submit = () => {
                                     v-model="form.RegiPhoneNumber"
                                 />
                             </div>
-                            <a href="/" class="text-black opacity-[0.54]">
-                                Al een klant? • Inloggen
-                            </a>
+                            <div class="mt-20">
+                                <a href="/" class="text-black opacity-[0.54]">
+                                    Al een klant? • Inloggen
+                                </a>
+                            </div>
                         </div>
                         <div>
                             <div>
@@ -113,7 +115,7 @@ const submit = () => {
                             </div>
                             <button
                                 type="submit"
-                                class="rounded-[41px] border border-solid border-white bg-white/20 w-[300px] h-[120px] backdrop-blur-[30px]"
+                                class="mt-30 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px]"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
