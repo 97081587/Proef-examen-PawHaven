@@ -122,7 +122,7 @@ const submit = () => {
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
                                 >
                                     <p class="text-white text-[25px]">
-                                        Registreren als Klant
+                                        Registreren als klant
                                     </p>
                                     <p class="text-white text-[10px]">
                                         Hierna wordt u doorgestuurd naar de

@@ -11,4 +11,17 @@ class logInController
 	{
 		return Inertia::render('klantenLogIn');
 	}
+
+	    public function login(Request $request) {
+        $validatedData = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
+            $request->session()->regenerate();
+        }
+
+        return redirect('/');
+    }
 }

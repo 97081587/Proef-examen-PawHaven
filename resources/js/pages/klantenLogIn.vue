@@ -63,6 +63,8 @@ import logo from "../components/logo.vue";
                                 <p class="text-white flex justify-end">Wachtwoord vergeten?</p>
                             </div>
                         </form>
+                        
+                         <!-- links naar registratie en admin inlog -->
                         <div class="flex flex-col text-black opacity-[0.54] mt-5 ml-5 gap-2">
                             <a href="/registratie"
                                 >Nog geen klant? • Registreren</a
