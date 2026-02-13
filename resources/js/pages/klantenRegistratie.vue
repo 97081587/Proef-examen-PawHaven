@@ -2,6 +2,7 @@
 // import { reactive } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
+import Logo from "../components/logo.vue";
 
 const form = useForm({
     RegiFirstName: "",
@@ -12,6 +13,7 @@ const form = useForm({
     RegiPasswordConfirm: "",
 });
 
+// validatie
 const submit = () => {
     if (form.RegiPassword !== form.RegiPasswordConfirm) {
         alert("Passwords do not match");
@@ -38,17 +40,16 @@ const submit = () => {
 
 <template>
     <div class="w-full h-full">
+        <!-- achtergrond afbeelding en logo -->
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
             class="w-full h-screen bg-cover bg-center relative"
         >
+            <!-- achtergrond verduistering -->
             <div class="absolute inset-0 bg-black/25"></div>
-            <h1
-                class="flex justify-center text-white text-4xl top-32 relative font-delius"
-            >
-                PawHaven
-            </h1>
+            <Logo />
 
+            <!-- registratie formulier -->
             <div class="flex justify-center top-50 relative">
                 <div
                     class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
