@@ -58,7 +58,7 @@ const submit = () => {
                         @submit.prevent="submit"
                         class="flex justify-center flex-row z-40 relative gap-30 mt-7"
                     >
-                        <div class="gap-">
+                        <div>
                             <div>
                                 <p class="text-white">Voornaam*:</p>
                                 <input
