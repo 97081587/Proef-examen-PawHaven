@@ -76,7 +76,7 @@ const submit = () => {
                                 />
                             </div>
                             <div>
-                                <p class="text-white">Email*:</p>
+                                <p class="text-white">E-mail*:</p>
                                 <input
                                     type="email"
                                     class="rounded-full bg-white w-full px-4 py-2"

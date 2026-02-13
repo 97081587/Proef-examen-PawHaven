@@ -18,33 +18,58 @@ import logo from "../components/logo.vue";
                 <div
                     class="absolute z-10 rounded-t-[41px] border-t border-l border-r border-white bg-white/20 w-[500px] h-[507px] backdrop-blur-[30px]"
                 >
-                    <!-- inloggen met klantnummer -->
-                    <form
-                        @submit.prevent="submit"
-                        class="flex flex-row z-40 relative gap-30 mt-7"
-                    >
-                        <div>
-                            <p class="text-white">Inloggen met klantnummer:</p>
+                    <div class="">
+                        <!-- inloggen met klantnummer -->
+                        <form
+                            @submit.prevent="submit"
+                            class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
+                        >
+                            <div>
+                                <p class="text-white">
+                                    Inloggen met klantnummer:
+                                </p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                        </form>
+
+                        <!-- lijn + "Of" -->
+                        <div class="flex flex-row items-center ml-0">
+                            <hr class="border-t border-white w-full my-4" />
+                            <p class="text-white ml-4 mr-4">Of</p>
+                            <hr class="border-t border-white w-full my-4" />
                         </div>
-                    </form>
 
-                    <div class="flex flex-row items-center">
-                        <hr class="border-t border-white w-full my-4" />
-                        <p class="text-white ml-4 mr-4">Of</p>
-                        <hr class="border-t border-white w-full my-4" />
+                        <!-- inloggen met email + wachtwoord -->
+                        <form
+                            @submit.prevent="submit"
+                            class="flex flex-col z-40 relative ml-10 mr-10"
+                        >
+                            <div>
+                                <p class="text-white">E-mail:</p>
+                                <input
+                                    type="email"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">Wachtwoord:</p>
+                                <input
+                                    type="password"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                                <p class="text-white flex justify-end">Wachtwoord vergeten?</p>
+                            </div>
+                        </form>
+                        <div class="flex flex-col text-black opacity-[0.54] mt-5 ml-5 gap-2">
+                            <a href="/registratie"
+                                >Nog geen klant? • Registreren</a
+                            >
+                            <a href="/">Inloggen als admin</a>
+                        </div>
                     </div>
-
-                    <!-- inloggen met email + wachtwoord -->
-                    <form
-                        @submit.prevent="submit"
-                        class="flex justify-center flex-row z-40 relative gap-30 mt-7"
-                    ></form>
-                    <p>
-                        <a href="/registratie">Nog geen klant? • Registreren</a>
-                    </p>
-                    <p>
-
-                    </p>
                 </div>
             </div>
         </div>
