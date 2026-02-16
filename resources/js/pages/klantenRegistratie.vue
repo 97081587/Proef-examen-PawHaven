@@ -2,6 +2,7 @@
 // import { reactive } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
+import Logo from "../components/logo.vue";
 
 const form = useForm({
     RegiFirstName: "",
@@ -12,6 +13,7 @@ const form = useForm({
     RegiPasswordConfirm: "",
 });
 
+// validatie
 const submit = () => {
     if (form.RegiPassword !== form.RegiPasswordConfirm) {
         alert("Passwords do not match");
@@ -38,17 +40,16 @@ const submit = () => {
 
 <template>
     <div class="w-full h-full">
+        <!-- achtergrond afbeelding en logo -->
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
             class="w-full h-screen bg-cover bg-center relative"
         >
+            <!-- achtergrond verduistering -->
             <div class="absolute inset-0 bg-black/25"></div>
-            <h1
-                class="flex justify-center text-white text-4xl top-32 relative font-delius"
-            >
-                PawHaven
-            </h1>
+            <Logo />
 
+            <!-- registratie formulier -->
             <div class="flex justify-center top-50 relative">
                 <div
                     class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
@@ -57,7 +58,7 @@ const submit = () => {
                         @submit.prevent="submit"
                         class="flex justify-center flex-row z-40 relative gap-30 mt-7"
                     >
-                        <div class="gap-">
+                        <div>
                             <div>
                                 <p class="text-white">Voornaam*:</p>
                                 <input
@@ -75,7 +76,7 @@ const submit = () => {
                                 />
                             </div>
                             <div>
-                                <p class="text-white">Email*:</p>
+                                <p class="text-white">E-mail*:</p>
                                 <input
                                     type="email"
                                     class="rounded-full bg-white w-full px-4 py-2"
@@ -121,7 +122,7 @@ const submit = () => {
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
                                 >
                                     <p class="text-white text-[25px]">
-                                        Registreren als Klant
+                                        Registreren als klant
                                     </p>
                                     <p class="text-white text-[10px]">
                                         Hierna wordt u doorgestuurd naar de

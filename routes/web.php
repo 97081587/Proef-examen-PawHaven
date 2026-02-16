@@ -2,12 +2,15 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\klantenRegistratieController;
-use App\Http\Controllers\logInController;
+use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
+use App\Http\Controllers\logInController as logIn;
+use App\Http\Controllers\klantenHomeController;
 
+Route::get('/', [logIn::class, 'index'])->name('logIn');
+Route::post('/', [logIn::class, 'login']);
 
-Route::get('/', [logInController::class, 'index'])->name('logIn');
+Route::get('/registratie', [KlantenRegistratie::class, 'index']);
+Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
 
-Route::get('/registratie', [klantenRegistratieController::class, 'index']);
-Route::post('/registratie', [klantenRegistratieController::class, 'registreren']);
+Route::get('/home', [klantenHomeController::class, 'index']);
 

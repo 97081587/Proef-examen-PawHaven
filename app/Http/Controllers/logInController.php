@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
+use Illuminate\Routing\Controller;
 
-class logInController
+class logInController extends Controller
 {
-	public function index(): Response
+	public function index()
 	{
 		return Inertia::render('klantenLogIn');
 	}
+
+	public function login(Request $request) {
+        $validatedData = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
+            $request->session()->regenerate();
+        }
+
+        return redirect('/home');
+    }
 }
