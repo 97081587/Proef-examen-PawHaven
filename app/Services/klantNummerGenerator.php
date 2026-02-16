@@ -21,7 +21,7 @@ class CustomerNumberService
 
 
 
-            // prefix
+            // prefix numbers
             $number = '2401160930' . $number;
 
             // Check if it already exists in users table
