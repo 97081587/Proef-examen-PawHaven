@@ -1,5 +1,28 @@
 <script setup>
 import logo from "../components/logo.vue";
+import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
+
+const form = useForm({
+    // klantNummer: "",
+    email: "",
+    password: "",
+});
+
+const submit = () => {
+    form.post("/", {
+        onSuccess: () => {
+            form.reset();
+        },
+    });
+
+    // Send data to Laravel
+    Inertia.post("/", {
+        // klantNummer: form.klantNummer,
+        email: form.email,
+        password: form.password,
+    });
+};
 </script>
 
 <template>
@@ -21,7 +44,7 @@ import logo from "../components/logo.vue";
                     <div class="">
                         <!-- inloggen met klantnummer -->
                         <form
-                            @submit.prevent="submit"
+                            @submit.prevent="submit" 
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
                         >
                             <div>
@@ -31,8 +54,10 @@ import logo from "../components/logo.vue";
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                />
+                                />    
+                                    <!-- v-model="form.klantNummer" -->
                             </div>
+                            <button type="submit" style="display: none;"></button>
                         </form>
 
                         <!-- lijn + "Of" -->
@@ -52,6 +77,7 @@ import logo from "../components/logo.vue";
                                 <input
                                     type="email"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.email"
                                 />
                             </div>
                             <div>
@@ -59,9 +85,11 @@ import logo from "../components/logo.vue";
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.password"
                                 />
                                 <p class="text-white flex justify-end">Wachtwoord vergeten?</p>
                             </div>
+                            <button type="submit" style="display: none;"></button>
                         </form>
                         
                          <!-- links naar registratie en admin inlog -->
