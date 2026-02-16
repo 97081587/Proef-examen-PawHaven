@@ -6,7 +6,7 @@ use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
 use App\Http\Controllers\logInController as logIn;
 use App\Http\Controllers\klantenHomeController;
 
-Route::get('/', [logIn::class, 'index']);
+Route::get('/', [logIn::class, 'index'])->name('logIn');
 Route::post('/', [logIn::class, 'login']);
 
 Route::get('/registratie', [KlantenRegistratie::class, 'index']);
