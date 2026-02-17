@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 
-class CustomerNumberService
+class KlantNummerGenerator
 {
     /**
      * Generate a unique customer number.
@@ -25,7 +25,7 @@ class CustomerNumberService
             $number = '2401160930' . $number;
 
             // Check if it already exists in users table
-        } while (User::where('customer_number', $number)->exists());
+        } while (User::where('customerNumber', $number)->exists());
 
         return $number;
     }
