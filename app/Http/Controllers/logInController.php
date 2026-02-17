@@ -16,10 +16,11 @@ class logInController extends Controller
 	public function login(Request $request) {
         $validatedData = $request->validate([
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'klantNummer' => 'required'
         ]);
 
-        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
+        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'customerNumber' => $validatedData['klantNummer']])) {
             $request->session()->regenerate();
         }
 

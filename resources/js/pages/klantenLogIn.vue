@@ -1,27 +1,38 @@
 <script setup>
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia";
+// import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
-    // klantNummer: "",
+    klantNummer: "",
     email: "",
     password: "",
 });
 
 const submit = () => {
+    // if (form.password == "") {
+    //     alert("Wachtwoord is leeg");
+    //     return;
+    // } else if (form.email == "") {
+    //     alert("E-mail is leeg");
+    //     return;
+    // } else if (form.klantNummer == "") {
+    //     alert("Klantnummer is leeg");
+    //     return;
+    // }
+
     form.post("/", {
         onSuccess: () => {
             form.reset();
         },
     });
 
-    // Send data to Laravel
-    Inertia.post("/", {
-        // klantNummer: form.klantNummer,
-        email: form.email,
-        password: form.password,
-    });
+    // // Send data to Laravel
+    // Inertia.post("/", {
+    //     klantNummer: form.klantNummer,
+    //     email: form.email,
+    //     password: form.password,
+    // });
 };
 </script>
 
@@ -54,8 +65,8 @@ const submit = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                />    
-                                    <!-- v-model="form.klantNummer" -->
+                                    v-model="form.klantNummer"
+                                />       
                             </div>
                             <button type="submit" style="display: none;"></button>
                         </form>
