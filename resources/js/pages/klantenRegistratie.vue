@@ -1,7 +1,7 @@
 <script setup>
 // import { reactive } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-// import { Inertia } from "@inertiajs/inertia";
+import { Inertia } from "@inertiajs/inertia";
 import Logo from "../components/logo.vue";
 
 const form = useForm({
@@ -27,14 +27,14 @@ const submit = () => {
     });
 
     // Send data to Laravel
-    // Inertia.post("/registratie", {
-    //     RegiFirstName: form.RegiFirstName,
-    //     RegiLastName: form.RegiLastName,
-    //     RegiEmail: form.RegiEmail,
-    //     RegiPhoneNumber: form.RegiPhoneNumber,
-    //     RegiPassword: form.RegiPassword,
-    //     RegiPassword_confirmation: form.RegiPasswordConfirm,
-    // });
+    Inertia.post("/registratie", {
+        RegiFirstName: form.RegiFirstName,
+        RegiLastName: form.RegiLastName,
+        RegiEmail: form.RegiEmail,
+        RegiPhoneNumber: form.RegiPhoneNumber,
+        RegiPassword: form.RegiPassword,
+        RegiPassword_confirmation: form.RegiPasswordConfirm,
+    });
 };
 </script>
 
