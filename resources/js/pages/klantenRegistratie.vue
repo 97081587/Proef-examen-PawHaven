@@ -92,7 +92,7 @@ const submit = () => {
                                 />
                             </div>
                             <div class="mt-20">
-                                <a href="/" class="text-black opacity-[0.54]">
+                                <a href="/" class="text-black opacity-[0.54]" tabindex="-1">
                                     Al een klant? • Inloggen
                                 </a>
                             </div>
