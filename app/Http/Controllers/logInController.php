@@ -15,9 +15,9 @@ class logInController extends Controller
 
 	public function login(Request $request) {
         $validatedData = $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'klantNummer' => 'required'
+            'email' => 'required_without:klantNummer',
+            'password' => 'required_with:email',
+            'klantNummer' => 'required_without:email||password',
         ]);
 
         if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'customerNumber' => $validatedData['klantNummer']])) {

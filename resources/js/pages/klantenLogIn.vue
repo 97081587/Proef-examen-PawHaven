@@ -1,7 +1,6 @@
 <script setup>
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-// import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
     klantNummer: "",
@@ -9,30 +8,31 @@ const form = useForm({
     password: "",
 });
 
-const submit = () => {
-    // if (form.password == "") {
-    //     alert("Wachtwoord is leeg");
-    //     return;
-    // } else if (form.email == "") {
-    //     alert("E-mail is leeg");
-    //     return;
-    // } else if (form.klantNummer == "") {
-    //     alert("Klantnummer is leeg");
-    //     return;
-    // }
-
+const submitKlantNummer = () => {
     form.post("/", {
+        data: {
+            klantNummer: form.klantNummer,
+        },
         onSuccess: () => {
             form.reset();
         },
     });
+};
+const submitEmailPassword = () => {
+    if (!form.email || !form.password) {
+        alert("Vul e-mail en wachtwoord in");
+        return;
+    }
 
-    // // Send data to Laravel
-    // Inertia.post("/", {
-    //     klantNummer: form.klantNummer,
-    //     email: form.email,
-    //     password: form.password,
-    // });
+    form.post("/", {
+        data: {
+            email: form.email,
+            password: form.password,
+        },
+        onSuccess: () => {
+            form.reset();
+        },
+    });
 };
 </script>
 
@@ -55,7 +55,7 @@ const submit = () => {
                     <div class="">
                         <!-- inloggen met klantnummer -->
                         <form
-                            @submit.prevent="submit" 
+                            @submit.prevent="submitKlantNummer"
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
                         >
                             <div>
@@ -66,9 +66,12 @@ const submit = () => {
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
                                     v-model="form.klantNummer"
-                                />       
+                                />
                             </div>
-                            <button type="submit" style="display: none;"></button>
+                            <button
+                                type="submit"
+                                style="display: none"
+                            ></button>
                         </form>
 
                         <!-- lijn + "Of" -->
@@ -80,7 +83,7 @@ const submit = () => {
 
                         <!-- inloggen met email + wachtwoord -->
                         <form
-                            @submit.prevent="submit"
+                            @submit.prevent="submitEmailPassword"
                             class="flex flex-col z-40 relative ml-10 mr-10"
                         >
                             <div>
@@ -98,16 +101,24 @@ const submit = () => {
                                     class="rounded-full bg-white w-full px-4 py-2"
                                     v-model="form.password"
                                 />
-                                <p class="text-white flex justify-end">Wachtwoord vergeten?</p>
+                                <p class="text-white flex justify-end">
+                                    Wachtwoord vergeten?
+                                </p>
                             </div>
-                            <button type="submit" style="display: none;"></button>
+                            <button
+                                type="submit"
+                                style="display: none"
+                            ></button>
                         </form>
-                        
-                         <!-- links naar registratie en admin inlog -->
-                        <div class="flex flex-col text-black opacity-[0.54] mt-5 ml-5 gap-2">
+
+                        <!-- links naar registratie en admin inlog -->
+                        <div
+                            class=" text-black opacity-[0.54] mt-5 ml-5 gap-2"
+                        >
                             <a href="/registratie"
                                 >Nog geen klant? • Registreren</a
                             >
+                            <br />
                             <a href="/">Inloggen als admin</a>
                         </div>
                     </div>
