@@ -24,16 +24,18 @@ class klantenRegistratieController extends Controller
 			'RegiPhoneNumber' => ['required', 'string', 'max:255'],
             'RegiEmail' => ['required', 'email', Rule::unique('users', 'email')],
             'RegiPassword' => ['required', 'min:3', 'confirmed'],
+            'RegiCustomerNumber' => ['nullable', 'string', 'max:255', Rule::exists('users', 'customer_number')],
         ]);
 
         $register = new User();
-		$register->firstName = $request['RegiFirstName'];
-		$register->lastName = $request['RegiLastName'];
-		$register->phoneNumber = $request['RegiPhoneNumber'];
+		$register->first_name = $request['RegiFirstName'];
+		$register->last_name = $request['RegiLastName'];
+		$register->phone_number = $request['RegiPhoneNumber'];
         $register->email = $request['RegiEmail'];
         $register->password = $request['RegiPassword'];
-        
-        $register->password = bcrypt(request('RegiPassword'));
+        $register->customer_number = $request['RegiCustomerNumber'];
+
+        // $register->password = bcrypt(request('RegiPassword'));
 
 		// dd($register);
 
