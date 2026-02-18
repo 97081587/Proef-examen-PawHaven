@@ -6,7 +6,7 @@
     class="w-full h-screen bg-cover bg-center relative"
     style="background-image: url('/img/backgroundImage.jpg');"
   >
-    <!-- طبقة شفافة -->
+    
     <div class="absolute inset-0 bg-black/30"></div>
 
     <!-- المحتوى -->
@@ -14,7 +14,8 @@
 
       <!-- Header -->
       <div class="flex justify-between items-center px-12 py-8">
-        <h1 class="text-4xl font-delius">
+        <!-- عنوان PawHaven معدل -->
+        <h1 class="text-white text-4xl font-delius text-center">
           PawHaven
         </h1>
 
@@ -24,6 +25,7 @@
             Mijn klantennummer:
           </p>
         </div>
+        
       </div>
 
       <!-- خط أبيض -->
@@ -37,6 +39,7 @@
           <div class="icon">✏</div>
           <p>Mijn merk voorkeuren</p>
         </div>
+        
 
         <!-- Box 2 -->
         <div class="glass-box">
@@ -56,9 +59,11 @@
 </template>
 
 <style scoped>
-.font-delius {
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
+/* .font-delius {
   font-family: 'Delius', cursive;
-}
+} */
 
 /* Glass effect */
 .glass-box {
