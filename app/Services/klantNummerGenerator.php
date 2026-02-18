@@ -10,15 +10,12 @@ class KlantNummerGenerator
      * Generate a unique customer number.
      * Default format: 6-digit numeric
      */
-    public static function generate(int $length = 6): string
+    public static function generate(int $length = 4): string
     {
         do {
-            // Generate a random number of given length
-            $number = '';
-            for ($i = 0; $i < $length; $i++) {
-                $number .= rand(0, 9);
-            }
 
+             // Random modulo 13, zero-padded
+            $number = str_pad(rand(0, pow(10, $length) - 1) % 13, $length, '0', STR_PAD_LEFT);
 
 
             // prefix numbers

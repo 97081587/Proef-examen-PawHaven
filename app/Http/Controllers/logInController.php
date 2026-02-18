@@ -14,16 +14,41 @@ class logInController extends Controller
 	}
 
 	public function login(Request $request) {
-        $validatedData = $request->validate([
-            'email' => 'required_without:klantNummer',
+        $request->validate([
+            'email' => 'required_without:klantNummer|email',
             'password' => 'required_with:email',
-            'klantNummer' => 'required_without:email||password',
+            'klantNummer' => 'required_without:email',
         ]);
 
-        if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'customerNumber' => $validatedData['klantNummer']])) {
-            $request->session()->regenerate();
-        }
+        // if (auth()->attempt(['email' => $validatedData['email'], 'password' => $validatedData['password'], 'customerNumber' => $validatedData['klantNummer']])) {
+        //     $request->session()->regenerate();
+        // }
 
-        return redirect('/home');
+        // return redirect('/home');
+
+    if ($request->filled('klantNummer')) {
+        $user = \App\Models\User::where('customerNumber', $request->klantNummer)->first();
+
+        if ($user) {
+            auth()->login($user);
+            $request->session()->regenerate();
+            return redirect('/home');
+        }
+    }
+
+    // Login via email + password
+    if ($request->filled('email')) {
+        if (auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ])) {
+            $request->session()->regenerate();
+            return redirect('/home');
+        }
+    }
+
+    return back()->withErrors([
+        'login' => 'Inloggegevens zijn onjuist.',
+    ]);
     }
 }

@@ -52,7 +52,7 @@ class User extends Authenticatable
     protected static function booted()
     {
         static::creating(function ($user) {
-            $user->customerNumber = KlantNummerGenerator::generate();
+            $user->customer_number = klantNummerGenerator::generate();
         });
     }
 }
