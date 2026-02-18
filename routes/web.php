@@ -14,3 +14,4 @@ Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
 
 Route::get('/home', [klantenHomeController::class, 'index']);
 
+Route::get('/home', [klantenHomeController::class, 'index']); 
