@@ -9,7 +9,7 @@ const form = useForm({
 });
 
 const submitKlantNummer = () => {
-    form.post("/", {
+    form.post("/LogIn", {
         data: {
             klantNummer: form.klantNummer,
         },
@@ -24,7 +24,7 @@ const submitEmailPassword = () => {
         return;
     }
 
-    form.post("/", {
+    form.post("/LogIn", {
         data: {
             email: form.email,
             password: form.password,

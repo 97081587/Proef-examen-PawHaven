@@ -92,7 +92,7 @@ const submit = () => {
                                 />
                             </div>
                             <div class="mt-20">
-                                <a href="/" class="text-black opacity-[0.54]" tabindex="-1">
+                                <a href="/LogIn" class="text-black opacity-[0.54]" tabindex="-1">
                                     Al een klant? • Inloggen
                                 </a>
                             </div>
@@ -126,7 +126,7 @@ const submit = () => {
                                     </p>
                                     <p class="text-white text-[10px]">
                                         Hierna wordt u doorgestuurd naar de
-                                        login pagina.
+                                        home pagina.
                                     </p>
                                 </div>
                             </button>
