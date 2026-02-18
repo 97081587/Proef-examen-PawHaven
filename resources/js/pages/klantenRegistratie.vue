@@ -11,6 +11,7 @@ const form = useForm({
     RegiPhoneNumber: "",
     RegiPassword: "",
     RegiPasswordConfirm: "",
+    RegiCustomerNumber: "",
 });
 
 // validatie
@@ -34,6 +35,7 @@ const submit = () => {
         RegiPhoneNumber: form.RegiPhoneNumber,
         RegiPassword: form.RegiPassword,
         RegiPassword_confirmation: form.RegiPasswordConfirm,
+        RegiCustomerNumber: form.RegiCustomerNumber,
     });
 };
 </script>
@@ -92,7 +94,7 @@ const submit = () => {
                                 />
                             </div>
                             <div class="mt-20">
-                                <a href="/LogIn" class="text-black opacity-[0.54]" tabindex="-1">
+                                <a href="/login" class="text-black opacity-[0.54]" tabindex="-1">
                                     Al een klant? • Inloggen
                                 </a>
                             </div>
@@ -114,9 +116,17 @@ const submit = () => {
                                     v-model="form.RegiPasswordConfirm"
                                 />
                             </div>
+                            <div>
+                                <p class="text-white mt-5">Uw bestaande PawHaven klantnummer:</p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                    v-model="form.RegiCustomerNumber"
+                                />
+                            </div>
                             <button
                                 type="submit"
-                                class="mt-30 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px]"
+                                class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px]"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"
