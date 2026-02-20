@@ -126,7 +126,7 @@ const submit = () => {
                             </div>
                             <button
                                 type="submit"
-                                class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px]"
+                                class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px] hover:scale-105 transition-transform duration-300"
                             >
                                 <div
                                     class="flex flex-col justify-center items-center gap-2 mt-5"

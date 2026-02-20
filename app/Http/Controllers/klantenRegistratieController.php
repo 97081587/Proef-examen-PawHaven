@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Illuminate\Routing\Controller;
-use App\Http\Services\KlantNummerCheck;
+use App\Services\KlantNummerCheck;
 
 class klantenRegistratieController extends Controller
 {
@@ -28,25 +28,29 @@ class klantenRegistratieController extends Controller
             'regi_customer_number' => 'required|string',
         ]);
 
+        // $result = KlantNummerCheck::isValid($request->regi_customer_number);
+        // if (!$result['valid']) {
+        //     return back()->withErrors(['regi_customer_number' => $result['message']])->withInput();
+        // }
+
+
         $register = new User();
 		$register->first_name = $request['regi_first_name'];
 		$register->last_name = $request['regi_last_name'];
 		$register->phone_number = $request['regi_phone_number'];
         $register->email = $request['regi_email'];
         $register->password = bcrypt($request['regi_password']);
-        // $register->customer_number = $request['regi_customer_number'];
+        $register->customer_number = $request['regi_customer_number'];
 
         // $register->password = bcrypt(request('RegiPassword'));
 
 		// dd($register);
-
-        $result = KlantNummerCheck::isValid($request->regi_customer_number);
 
         $register->save();
         
         Session::put('registratie', $register);
         auth()->login($register);
 
-        return redirect()->route('/');
+        return redirect('/');
     }
 }

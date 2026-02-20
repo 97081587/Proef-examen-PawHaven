@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 
-class KlantNummerGenerator
+class KlantNummerCheck
 {
     private const PREFIX = '2401160930';
 
