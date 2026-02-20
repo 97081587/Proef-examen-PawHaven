@@ -42,16 +42,16 @@ const submit = () => {
 
 <template>
     <div class="w-full h-full">
-        <!-- achtergrond afbeelding en logo -->
+        <!-- backgrond image and logo -->
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
             class="w-full h-screen bg-cover bg-center relative"
         >
-            <!-- achtergrond verduistering -->
+            <!-- background darkening -->
             <div class="absolute inset-0 bg-black/25"></div>
             <Logo />
 
-            <!-- registratie formulier -->
+            <!-- registration form -->
             <div class="flex justify-center top-50 relative">
                 <div
                     class="absolute z-0 rounded-[41px] border border-solid border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"

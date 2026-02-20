@@ -38,22 +38,22 @@ const submitEmailPassword = () => {
 
 <template>
     <div class="w-full h-full">
-        <!-- achtergrond afbeelding en logo -->
+        <!-- background image and logo -->
         <div
             :style="{ backgroundImage: `url('/img/backgroundImage.jpg')` }"
             class="w-full h-screen bg-cover bg-center relative"
         >
-            <!-- achtergrond verduistering -->
+            <!-- background darkening -->
             <div class="absolute inset-0 bg-black/25"></div>
             <logo />
 
-            <!-- log in formulier -->
+            <!-- log in form -->
             <div class="flex justify-center top-50 relative">
                 <div
                     class="absolute z-10 rounded-t-[41px] border-t border-l border-r border-white bg-white/20 w-[500px] h-[507px] backdrop-blur-[30px]"
                 >
                     <div class="">
-                        <!-- inloggen met klantnummer -->
+                        <!-- log in with klantnummer -->
                         <form
                             @submit.prevent="submitKlantNummer"
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
@@ -74,14 +74,14 @@ const submitEmailPassword = () => {
                             ></button>
                         </form>
 
-                        <!-- lijn + "Of" -->
+                        <!-- line + "Of" -->
                         <div class="flex flex-row items-center ml-0">
                             <hr class="border-t border-white w-full my-4" />
                             <p class="text-white ml-4 mr-4">Of</p>
                             <hr class="border-t border-white w-full my-4" />
                         </div>
 
-                        <!-- inloggen met email + wachtwoord -->
+                        <!-- log in with email + passwoord -->
                         <form
                             @submit.prevent="submitEmailPassword"
                             class="flex flex-col z-40 relative ml-10 mr-10"
@@ -111,7 +111,7 @@ const submitEmailPassword = () => {
                             ></button>
                         </form>
 
-                        <!-- links naar registratie en admin inlog -->
+                        <!-- links to registration and admin log in -->
                         <div
                             class=" text-black opacity-[0.54] mt-5 ml-5 gap-2"
                         >
