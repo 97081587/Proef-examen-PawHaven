@@ -5,18 +5,18 @@ import { Inertia } from "@inertiajs/inertia";
 import Logo from "../components/logo.vue";
 
 const form = useForm({
-    RegiFirstName: "",
-    RegiLastName: "",
-    RegiEmail: "",
-    RegiPhoneNumber: "",
-    RegiPassword: "",
-    RegiPasswordConfirm: "",
-    RegiCustomerNumber: "",
+    regiFirstName: "",
+    regiLastName: "",
+    regiMail: "",
+    regiPhoneNumber: "",
+    regiPassword: "",
+    regiPasswordConfirmation: "",
+    regiCustomerNumber: "",
 });
 
 // validatie
 const submit = () => {
-    if (form.RegiPassword !== form.RegiPasswordConfirm) {
+    if (form.regiPassword !== form.regiPasswordConfirmation) {
         alert("Wachtwoorden komen niet overeen");
         return;
     }
@@ -29,13 +29,13 @@ const submit = () => {
 
     // Send data to Laravel
     Inertia.post("/registratie", {
-        RegiFirstName: form.RegiFirstName,
-        RegiLastName: form.RegiLastName,
-        RegiEmail: form.RegiEmail,
-        RegiPhoneNumber: form.RegiPhoneNumber,
-        RegiPassword: form.RegiPassword,
-        RegiPassword_confirmation: form.RegiPasswordConfirm,
-        RegiCustomerNumber: form.RegiCustomerNumber,
+        regi_first_name: form.regiFirstName,
+        regi_last_name: form.regiLastName,
+        regi_email: form.regiMail,
+        regi_phone_number: form.regiPhoneNumber,
+        regi_password: form.regiPassword,
+        regi_password_confirmation: form.regiPasswordConfirmation,
+        regi_customer_number: form.regiCustomerNumber,
     });
 };
 </script>
@@ -66,7 +66,7 @@ const submit = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiFirstName"
+                                    v-model="form.regiFirstName"
                                 />
                             </div>
                             <div>
@@ -74,7 +74,7 @@ const submit = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiLastName"
+                                    v-model="form.regiLastName"
                                 />
                             </div>
                             <div>
@@ -82,7 +82,7 @@ const submit = () => {
                                 <input
                                     type="email"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiEmail"
+                                    v-model="form.regiMail"
                                 />
                             </div>
                             <div>
@@ -90,7 +90,7 @@ const submit = () => {
                                 <input
                                     type="tel"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiPhoneNumber"
+                                    v-model="form.regiPhoneNumber"
                                 />
                             </div>
                             <div class="mt-20">
@@ -105,7 +105,7 @@ const submit = () => {
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiPassword"
+                                    v-model="form.regiPassword"
                                 />
                             </div>
                             <div>
@@ -113,7 +113,7 @@ const submit = () => {
                                 <input
                                     type="password"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiPasswordConfirm"
+                                    v-model="form.regiPasswordConfirmation"
                                 />
                             </div>
                             <div>
@@ -121,7 +121,7 @@ const submit = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.RegiCustomerNumber"
+                                    v-model="form.regiCustomerNumber"
                                 />
                             </div>
                             <button
