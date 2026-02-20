@@ -119,7 +119,7 @@ const submitEmailPassword = () => {
                                 >Nog geen klant? • Registreren</a
                             >
                             <br />
-                            <a href="/">Inloggen als admin</a>
+                            <a href="/login">Inloggen als admin</a>
                         </div>
                     </div>
                 </div>
