@@ -29,6 +29,8 @@ class klantenRegistratieController extends Controller
         ]);
 
         $result = KlantNummerCheck::isValid($request->regi_customer_number);
+
+       dd($result); 
        
         // if (!$result['valid']) {
         //     return back()
