@@ -30,13 +30,13 @@ class klantenRegistratieController extends Controller
 
         $result = KlantNummerCheck::isValid($request->regi_customer_number);
 
-       dd($result); 
+    //    dd($result); 
        
-        // if (!$result['valid']) {
-        //     return back()
-        //         ->withErrors(['regi_customer_number' => $result['message']])
-        //         ->withInput();
-        // }
+        if (!$result['valid']) {
+            return back()
+                ->withErrors(['regi_customer_number' => $result['message']])
+                ->withInput();
+        }
 
 
         $register = new User();
