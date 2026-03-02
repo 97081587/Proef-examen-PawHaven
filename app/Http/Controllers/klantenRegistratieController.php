@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Illuminate\Routing\Controller;
+use App\Services\KlantNummerCheck;
 
 class klantenRegistratieController extends Controller
 {
@@ -19,21 +20,30 @@ class klantenRegistratieController extends Controller
 	
 	public function registreren(Request $request) {
         $validatedData = $request->validate([
-			'RegiFirstName' => ['required', 'string', 'max:255'],
-			'RegiLastName' => ['required', 'string', 'max:255'],
-			'RegiPhoneNumber' => ['required', 'string', 'max:255'],
-            'RegiEmail' => ['required', 'email', Rule::unique('users', 'email')],
-            'RegiPassword' => ['required', 'min:3', 'confirmed'],
-            'RegiCustomerNumber' => ['nullable', 'string', 'max:255', Rule::exists('users', 'customer_number')],
+			'regi_first_name' => ['required', 'string', 'max:255'],
+			'regi_last_name' => ['required', 'string', 'max:255'],
+			'regi_phone_number' => ['required', 'string', 'max:255'],
+            'regi_email' => ['required', 'email', Rule::unique('users', 'email')],
+            'regi_password' => ['required', 'min:3', 'confirmed'],
+            'regi_customer_number' => 'required|string',
         ]);
 
+        $result = KlantNummerCheck::isValid($request->regi_customer_number);
+       
+        // if (!$result['valid']) {
+        //     return back()
+        //         ->withErrors(['regi_customer_number' => $result['message']])
+        //         ->withInput();
+        // }
+
+
         $register = new User();
-		$register->first_name = $request['RegiFirstName'];
-		$register->last_name = $request['RegiLastName'];
-		$register->phone_number = $request['RegiPhoneNumber'];
-        $register->email = $request['RegiEmail'];
-        $register->password = $request['RegiPassword'];
-        $register->customer_number = $request['RegiCustomerNumber'];
+		$register->first_name = $request['regi_first_name'];
+		$register->last_name = $request['regi_last_name'];
+		$register->phone_number = $request['regi_phone_number'];
+        $register->email = $request['regi_email'];
+        $register->password = bcrypt($request['regi_password']);
+        $register->customer_number = $request['regi_customer_number'];
 
         // $register->password = bcrypt(request('RegiPassword'));
 
@@ -44,6 +54,6 @@ class klantenRegistratieController extends Controller
         Session::put('registratie', $register);
         auth()->login($register);
 
-        return redirect()->route('/');
+        return redirect('/');
     }
 }
