@@ -40,12 +40,12 @@ class KlantNummerCheck
         }
 
         // 3️⃣ Modulo 13 check
-        if (((int)$numericPart % 13) !== 0) {
-            return [
-                'valid' => false,
-                'message' => 'Customer number does not satisfy modulo 13 rule.',
-            ];
-        }
+        // if (((int)$numericPart % 13) !== 0) {
+        //     return [
+        //         'valid' => false,
+        //         'message' => 'Customer number does not satisfy modulo 13 rule.',
+        //     ];
+        // }
 
         // 4️⃣ Check uniqueness
         if (self::exists($number)) {
