@@ -13,5 +13,9 @@ class klantenHomeController extends BaseController
     }
 
     // hele data hash gebeuren hier
+    public function dataHash()
+    {
+    
+    }
 }
 
