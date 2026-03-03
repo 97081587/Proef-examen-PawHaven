@@ -1,5 +1,9 @@
 <script setup>
 import Header from '../components/header.vue';
+
+defineProps({
+  klantnummer: String
+})
 </script>
 
 <template>
@@ -14,7 +18,7 @@ import Header from '../components/header.vue';
     <div class="relative z-10 h-full flex flex-col text-white">
 
       <!-- Header -->
-      <Header />
+      <Header :klantnummer="klantnummer" />
 
       <!-- البوكسات / boxes-->
       <div class="flex justify-center items-center flex-1 gap-20">
