@@ -6,10 +6,10 @@
     class="w-full h-screen bg-cover bg-center relative"
     style="background-image: url('/img/backgroundImage.jpg');"
   >
-    <!-- طبقة شفافة -->
+    <!-- طبقة شفافة / Transparent layer-->
     <div class="absolute inset-0 bg-black/30"></div>
 
-    <!-- المحتوى -->
+    <!-- المحتوى / Content-->
     <div class="relative z-10 h-full flex flex-col text-white">
 
       <!-- Header -->
@@ -26,10 +26,10 @@
         </div>
       </div>
 
-      <!-- خط أبيض -->
+      <!-- خط أبيض / white line-->
       <div class="border-t border-white/40 mx-12"></div>
 
-      <!-- البوكسات -->
+      <!-- البوكسات / boxes-->
       <div class="flex justify-center items-center flex-1 gap-20">
 
         <!-- Box 1 -->
