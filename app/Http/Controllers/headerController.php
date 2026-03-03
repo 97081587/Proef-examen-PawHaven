@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Routing\Controller as BaseController;
 
-class klantenHomeController extends BaseController
+class headerController extends BaseController
 {
     //uitlog functie
-    public function logOut()
+    public function logout(Request $request)
     {
         auth()->logout();
+        $request->session()->invalidate(); // destroys session
+        $request->session()->regenerateToken(); // prevents CSRF reuse
         return redirect('/login');
     }
 
