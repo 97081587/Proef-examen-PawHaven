@@ -1,5 +1,5 @@
 <script setup>
-import Header from '../components/header.vue';
+import Header from '../layouts/header.vue';
 
 defineProps({
   klantnummer: String
