@@ -32,7 +32,7 @@ class logInController extends Controller
         if ($user) {
             auth()->login($user);
             $request->session()->regenerate();
-            return redirect('/home');
+            return redirect('/');
         }
     }
 
@@ -43,7 +43,7 @@ class logInController extends Controller
             'password' => $request->password
         ])) {
             $request->session()->regenerate();
-            return redirect('/home');
+            return redirect('/');
         }
     }
 
