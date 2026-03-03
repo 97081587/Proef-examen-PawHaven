@@ -11,5 +11,7 @@ class klantenHomeController extends BaseController
     {
         return Inertia::render('klantenHome');
     }
+
+    // hele data hash gebeuren hier
 }
 

@@ -1,15 +1,23 @@
-<script setup></script>
+<script setup>
+defineProps({
+  klantnummer: {
+    type: String,
+    required: true
+  }
+})
+</script>
 
 <template>
+    <!-- Header -->
     <div class="flex justify-between items-center px-12 py-8">
-        <h1 class="text-4xl font-delius">PawHaven</h1>
+        <h1 class="text-4xl font-delius"><a href="/">PawHaven</a></h1>
 
         <div class="text-right">
             <p class="cursor-pointer hover:underline">Uitloggen</p>
-            <p class="text-sm mt-1">Mijn klantennummer:</p>
+            <p class="text-sm mt-1">Mijn klantennummer: {{ klantnummer }}</p>
         </div>
     </div>
 
-      <!-- خط أبيض / white line-->
-       <hr class="border-t border-white/40">
+    <!-- خط أبيض / white line-->
+    <hr class="border-t border-white/40" />
 </template>
