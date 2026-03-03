@@ -1,5 +1,10 @@
 <script setup>
 import Header from '../layouts/header.vue';
+import { Inertia } from '@inertiajs/inertia'
+
+const deleteAccount = () => {
+  Inertia.post('/delete-account');
+}
 
 defineProps({
   klantnummer: String
@@ -36,7 +41,7 @@ defineProps({
         </div>
 
         <!-- Box 3 -->
-        <div class="glass-box">
+        <div class="glass-box" @click="deleteAccount">
           <div class="icon">❌</div>
           <p>Account verwijderen</p>
         </div>

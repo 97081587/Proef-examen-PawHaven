@@ -17,7 +17,7 @@ Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
 
 //home
 Route::get('/', [KlantenHome::class, 'index']);
-Route::post('/', [KlantenHome::class, 'dataHash']);
+Route::post('/delete-account', [KlantenHome::class, 'dataHash']);
 
 //header
 Route::post('/logout', [header::class, 'logout'])->name('logout');
