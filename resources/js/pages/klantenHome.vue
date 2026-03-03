@@ -3,8 +3,11 @@ import Header from '../layouts/header.vue';
 import { Inertia } from '@inertiajs/inertia'
 
 const deleteAccount = () => {
-  alert('Weet je zeker dat je je account wilt verwijderen?');
-  Inertia.post('/delete-account');
+  if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
+    Inertia.post('/delete-account');
+  } else {
+    return;
+  }
 }
 
 defineProps({
