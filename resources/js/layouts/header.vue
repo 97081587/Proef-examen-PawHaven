@@ -1,13 +1,30 @@
 <script setup>
+import { Inertia } from '@inertiajs/inertia'
+
+const logOut = () => {
+  Inertia.post('/logout')
+}
+
+defineProps({
+  klantnummer: {
+    type: String,
+    required: true
+  }
+})
+
 </script>
 
 <template>
-    <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold">PawHaven</h1>
-        
-        <nav>
-            <router-link to="/klanten" class="mr-4">Home</router-link>
-            <router-link to="/login">Login</router-link>
-        </nav>
-    </header>
+    <!-- Header -->
+    <div class="flex justify-between items-center px-12 py-8">
+        <h1 class="text-4xl font-delius"><a href="/">PawHaven</a></h1>
+
+        <div class="text-right">
+            <p class="cursor-pointer hover:underline" @click="logOut">Uitloggen</p>
+            <p class="text-sm mt-1">Mijn klantennummer: {{ klantnummer}}</p>
+        </div>
+    </div>
+
+    <!-- خط أبيض / white line-->
+    <hr class="border-t border-white/40" />
 </template>

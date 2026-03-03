@@ -1,4 +1,18 @@
 <script setup>
+import Header from '../layouts/header.vue';
+import { Inertia } from '@inertiajs/inertia'
+
+const deleteAccount = () => {
+  if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
+    Inertia.post('/delete-account');
+  } else {
+    return;
+  }
+}
+
+defineProps({
+  klantnummer: String
+})
 </script>
 
 <template>
@@ -6,30 +20,16 @@
     class="w-full h-screen bg-cover bg-center relative"
     style="background-image: url('/img/backgroundImage.jpg');"
   >
-    <!-- طبقة شفافة -->
-    <div class="absolute inset-0 bg-black/30"></div>
+    <!-- طبقة شفافة / Transparent layer-->
+    <div class="absolute inset-0 bg-black/25"></div>
 
-    <!-- المحتوى -->
+    <!-- المحتوى / Content-->
     <div class="relative z-10 h-full flex flex-col text-white">
 
       <!-- Header -->
-      <div class="flex justify-between items-center px-12 py-8">
-        <h1 class="text-4xl font-delius">
-          PawHaven
-        </h1>
+      <Header :klantnummer="klantnummer" />
 
-        <div class="text-right">
-          <p class="cursor-pointer hover:underline">Uitloggen</p>
-          <p class="text-sm mt-1">
-            Mijn klantennummer:
-          </p>
-        </div>
-      </div>
-
-      <!-- خط أبيض -->
-      <div class="border-t border-white/40 mx-12"></div>
-
-      <!-- البوكسات -->
+      <!-- البوكسات / boxes-->
       <div class="flex justify-center items-center flex-1 gap-20">
 
         <!-- Box 1 -->
@@ -45,9 +45,9 @@
         </div>
 
         <!-- Box 3 -->
-        <div class="glass-box">
-          <div class="icon">⚙</div>
-          <p>Account instellingen</p>
+        <div class="glass-box" @click="deleteAccount">
+          <div class="icon">❌</div>
+          <p>Account verwijderen</p>
         </div>
 
       </div>
