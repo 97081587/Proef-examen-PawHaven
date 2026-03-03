@@ -11,5 +11,5 @@
     </div>
 
       <!-- خط أبيض / white line-->
-      <div class="border-t border-white/40 mx-12 w-full"></div>
+       <hr class="border-t border-white/40">
 </template>

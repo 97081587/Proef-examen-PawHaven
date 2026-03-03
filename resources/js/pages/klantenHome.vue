@@ -33,8 +33,8 @@ import Header from '../components/header.vue';
 
         <!-- Box 3 -->
         <div class="glass-box">
-          <div class="icon">⚙</div>
-          <p>Account instellingen</p>
+          <div class="icon">❌</div>
+          <p>Account verwijderen</p>
         </div>
 
       </div>
