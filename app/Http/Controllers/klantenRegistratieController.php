@@ -32,12 +32,11 @@ class klantenRegistratieController extends Controller
 
     //    dd($result); 
 
-    //is voor mod 13 check en prefix check, maar aangezien de modulo 13 check niet verplicht is, heb ik deze tijdelijk uitgecomment. Je kan deze weer terug zetten als je wilt dat de modulo 13 check ook word uitgevoerd.
-        // if (!$result['valid']) {
-        //     return back()
-        //         ->withErrors(['regi_customer_number' => $result['message']])
-        //         ->withInput();
-        // }
+        if (!$result['valid']) {
+            return back()
+                ->withErrors(['regi_customer_number' => $result['message']])
+                ->withInput();
+        }
 
 
         $register = new User();
