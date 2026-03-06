@@ -30,9 +30,9 @@ class KlantNummerCheck
         }
 
         // 2️⃣ Extract numeric part after prefix
-        $numericPart = substr($number, strlen(self::PREFIX));
+        // $numericPart = substr($number, strlen(self::PREFIX));
 
-        if (!ctype_digit($numericPart)) {
+        if (!ctype_digit($number)) {
             return [
                 'valid' => false,
                 'message' => 'Customer number contains invalid characters.',
@@ -40,12 +40,12 @@ class KlantNummerCheck
         }
 
         // 3️⃣ Modulo 13 check
-        // if (((int)$numericPart % 13) !== 0) {
-        //     return [
-        //         'valid' => false,
-        //         'message' => 'Customer number does not satisfy modulo 13 rule.',
-        //     ];
-        // }
+        if (((int)$number % 13) !== 0) {
+            return [
+                'valid' => false,
+                'message' => 'Customer number does not satisfy modulo 13 rule.',
+            ];
+        }
 
         // 4️⃣ Check uniqueness
         if (self::exists($number)) {
