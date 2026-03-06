@@ -16,13 +16,13 @@ class logInController extends Controller
 
 	public function login(Request $request) {
         $request->validate([
-            'email' => 'required_without:klantNummer|email',
+            'email' => 'required_without:klantnummer|email',
             'password' => 'required_with:email',
-            'klantNummer' => 'required_without:email',
+            'klantnummer' => 'required_without:email',
         ]);
 
-        if ($request->filled('klantNummer')) {
-            $user = User::where('customer_number', $request->klantNummer)->first();
+        if ($request->filled('klantnummer')) {
+            $user = User::where('customer_number', $request->klantnummer)->first();
 
             if ($user) {
                 auth()->login($user);
