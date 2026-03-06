@@ -3,21 +3,23 @@ import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
-    klantNummer: "",
+    klantnummer: "",
     email: "",
     password: "",
 });
 
 const submitKlantNummer = () => {
+    if (!form.klantnummer) {
+        alert("Vul klantnummer in");
+        return;
+    }
+
     form.post("/login", {
-        data: {
-            klantNummer: form.klantNummer,
-        },
-        onSuccess: () => {
-            form.reset();
-        },
+        onSuccess: () => 
+        form.reset(),
     });
 };
+
 const submitEmailPassword = () => {
     if (!form.email || !form.password) {
         alert("Vul e-mail en wachtwoord in");
@@ -25,13 +27,8 @@ const submitEmailPassword = () => {
     }
 
     form.post("/login", {
-        data: {
-            email: form.email,
-            password: form.password,
-        },
-        onSuccess: () => {
-            form.reset();
-        },
+        onSuccess: () =>
+            form.reset(),
     });
 };
 </script>
@@ -65,7 +62,7 @@ const submitEmailPassword = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.klantNummer"
+                                    v-model="form.klantnummer"
                                 />
                             </div>
                             <button
