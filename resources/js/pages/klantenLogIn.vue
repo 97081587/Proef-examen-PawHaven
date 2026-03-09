@@ -3,13 +3,13 @@ import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
-    klantnummer: "",
+    customer_number: "",
     email: "",
     password: "",
 });
 
 const submitKlantNummer = () => {
-    if (!form.klantnummer) {
+    if (!form.customer_number) {
         alert("Vul klantnummer in");
         return;
     }
@@ -62,7 +62,7 @@ const submitEmailPassword = () => {
                                 <input
                                     type="text"
                                     class="rounded-full bg-white w-full px-4 py-2"
-                                    v-model="form.klantnummer"
+                                    v-model="form.customer_number"
                                 />
                             </div>
                             <button

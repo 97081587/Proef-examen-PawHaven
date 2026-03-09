@@ -16,34 +16,30 @@ class logInController extends Controller
 
 	public function login(Request $request) {
         $request->validate([
-            'email' => 'required_without:klantnummer|email',
+            'email' => 'required_without:customer_number|email',
             'password' => 'required_with:email',
-            'klantnummer' => 'required_without:email',
+            'customer_number' => 'required_without:email',
         ]);
 
         // Login via klantnummer
-        if ($request->filled('klantnummer')) {
-            
-            $user = User::where('customer_number', $request->klantnummer)->first();
+        if ($request->filled('customer_number')) {
+
+
+        //alleen inloggen met klantnummer zonder wachtwoord
+            $user = User::where('customer_number', $request->customer_number)->first();
 
             if ($user) {
                 auth()->login($user);
                 $request->session()->regenerate();
+
+                dd($request->all());
                 return redirect('/');
             }
-
-            // if (auth()->attempt([
-            //     'klantnummer' => $request->klantnummer
-            // ])) {
-            //     $request->session()->regenerate();
-            //     return redirect('/');
-            // }
         }
 
         return back()->withErrors([
             'login' => 'Klantnummer is onjuist.',
         ]);
-
 
         // Login via email + password
         if ($request->filled('email')) {
@@ -52,6 +48,8 @@ class logInController extends Controller
                 'password' => $request->password
             ])) {
                 $request->session()->regenerate();
+
+                dd($request->all());
                 return redirect('/');
             }
         }
