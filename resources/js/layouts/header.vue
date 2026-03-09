@@ -1,11 +1,5 @@
 <script setup>
-import {usePage} from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
-
-// const { auth } = usePage().props
-// const klantnummer = auth.user?.klantnummer
-
-const klantnummer = usePage().props.auth?.user?.klantnummer ?? 'N/A'
 
 const logOut = () => {
   Inertia.post('/logout')

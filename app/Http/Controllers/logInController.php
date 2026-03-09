@@ -21,19 +21,28 @@ class logInController extends Controller
             'klantnummer' => 'required_without:email',
         ]);
 
+        // Login via klantnummer
         if ($request->filled('klantnummer')) {
-            $user = User::where('customer_number', $request->klantnummer)->first();
+            // $user = User::where('customer_number', $request->klantnummer)->first();
 
-            if ($user) {
-                auth()->login($user);
+            // if ($user) {
+            //     auth()->login($user);
+            //     $request->session()->regenerate();
+            //     return redirect('/');
+            // }
+
+            if (auth()->attempt([
+                'klantnummer' => $request->klantnummer
+            ])) {
                 $request->session()->regenerate();
                 return redirect('/');
             }
-
-            return back()->withErrors([
-                'login' => 'Klantnummer is onjuist.',
-            ]);
         }
+
+        return back()->withErrors([
+            'login' => 'Klantnummer is onjuist.',
+        ]);
+
 
         // Login via email + password
         if ($request->filled('email')) {

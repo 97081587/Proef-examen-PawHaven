@@ -19,14 +19,17 @@ class headerController extends BaseController
     }
 
     //klantnummer ophalen en laten zien in header
-    public function klantnummer()
+    public function klantnummer(Request $request)
     {
-        // $klantNummer = auth()->user()->customer_number;
-        // return Inertia::render('home', ['klantNummer' => $klantNummer]);
+        $request->validate([
+            'klantnummer' => 'required_without:email',
+        ]);
+        // $klantnummer = auth()->user()->customer_number;
+        // return Inertia::render('header', ['klantnummer' => $klantnummer]);
 
         $user = Auth::user();
 
-        return Inertia::render('Dashboard', [
+        return Inertia::render('header', [
             'klantnummer' => $user->customer_number,
         ]);
     }
