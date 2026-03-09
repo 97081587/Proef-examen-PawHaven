@@ -27,7 +27,7 @@ defineProps({
     <div class="relative z-10 h-full flex flex-col text-white">
 
       <!-- Header -->
-      <Header :klantnummer="klantnummer" />
+      <Header />
 
       <!-- البوكسات / boxes-->
       <div class="flex justify-center items-center flex-1 gap-20">
