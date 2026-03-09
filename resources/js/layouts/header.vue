@@ -1,16 +1,20 @@
 <script setup>
 import { Inertia } from '@inertiajs/inertia'
+import { usePage } from '@inertiajs/inertia'
+
+const page = usePage()
+const klantnummer = page.props.auth.klantnummer
 
 const logOut = () => {
   Inertia.post('/logout')
 }
 
-defineProps({
-  klantnummer: {
-    type: String,
-    required: true
-  }
-})
+// defineProps({
+//   klantnummer: {
+//     type: String,
+//     required: true
+//   }
+// })
 
 </script>
 

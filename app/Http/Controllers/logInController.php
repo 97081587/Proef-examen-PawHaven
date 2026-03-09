@@ -23,20 +23,21 @@ class logInController extends Controller
 
         // Login via klantnummer
         if ($request->filled('klantnummer')) {
-            // $user = User::where('customer_number', $request->klantnummer)->first();
+            
+            $user = User::where('customer_number', $request->klantnummer)->first();
 
-            // if ($user) {
-            //     auth()->login($user);
-            //     $request->session()->regenerate();
-            //     return redirect('/');
-            // }
-
-            if (auth()->attempt([
-                'klantnummer' => $request->klantnummer
-            ])) {
+            if ($user) {
+                auth()->login($user);
                 $request->session()->regenerate();
                 return redirect('/');
             }
+
+            // if (auth()->attempt([
+            //     'klantnummer' => $request->klantnummer
+            // ])) {
+            //     $request->session()->regenerate();
+            //     return redirect('/');
+            // }
         }
 
         return back()->withErrors([
