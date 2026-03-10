@@ -7,7 +7,7 @@ const page = usePage()
 console.log(page.props)
 
     // const user = page.props.auth?.user
-const klantnummer = page.props.auth.user?.klantnummer ?? 'Geen klantnummer!'
+const klantnummer = page.props.auth?.user?.klantnummer ?? 'Geen klantnummer!'
 
 const logOut = () => {
   Inertia.post('/logout')
