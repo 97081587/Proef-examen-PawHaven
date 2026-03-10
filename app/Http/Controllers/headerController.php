@@ -17,20 +17,4 @@ class headerController extends BaseController
         $request->session()->regenerateToken(); // prevents CSRF reuse
         return redirect('/login');
     }
-
-    //klantnummer ophalen en laten zien in header
-    // public function klantnummer(Request $request)
-    // {
-    //     $request->validate([
-    //         'klantnummer' => 'required_without:email',
-    //     ]);
-    //     // $klantnummer = auth()->user()->customer_number;
-    //     // return Inertia::render('header', ['klantnummer' => $klantnummer]);
-
-    //     $user = Auth::user();
-
-    //     return Inertia::render('header', [
-    //         'klantnummer' => $user->customer_number,
-    //     ]);
-    // }
 }
