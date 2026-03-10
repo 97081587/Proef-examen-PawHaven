@@ -41,7 +41,6 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user()
                 ? [
                     'klantnummer' => $request->user()->customer_number,
-                    'name' => $request->user()->firstName,
                 ]
                 : null,
             ],
