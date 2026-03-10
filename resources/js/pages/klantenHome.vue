@@ -10,9 +10,9 @@ const deleteAccount = () => {
   }
 }
 
-defineProps({
-  klantnummer: String
-})
+// defineProps({
+//   klantnummer: String
+// })
 </script>
 
 <template>

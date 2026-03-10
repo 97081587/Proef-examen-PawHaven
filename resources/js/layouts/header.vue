@@ -3,7 +3,11 @@ import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-vue3'
 
 const page = usePage()
-const klantnummer = page.props.auth.klantnummer || ''
+
+console.log(page.props)
+
+    // const user = page.props.auth?.user
+const klantnummer = page.props.auth?.user?.klantnummer ?? 'Geen klantnummer!'
 
 const logOut = () => {
   Inertia.post('/logout')
