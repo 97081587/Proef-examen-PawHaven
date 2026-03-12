@@ -18,44 +18,44 @@ class klantenRegistratieController extends Controller
 		return Inertia::render('klantenRegistratie');
 	}
 	
-	public function registreren(Request $request) {
-        $validatedData = $request->validate([
-			'regi_first_name' => ['required', 'string', 'max:255'],
-			'regi_last_name' => ['required', 'string', 'max:255'],
-			'regi_phone_number' => ['required', 'string', 'max:255'],
-            'regi_email' => ['required', 'email', Rule::unique('users', 'email')],
-            'regi_password' => ['required', 'min:3', 'confirmed'],
-            'regi_customer_number' => 'required|string',
-        ]);
+	// public function registreren(Request $request) {
+    //     $validatedData = $request->validate([
+	// 		'regi_first_name' => ['required', 'string', 'max:255'],
+	// 		'regi_last_name' => ['required', 'string', 'max:255'],
+	// 		'regi_phone_number' => ['required', 'string', 'max:255'],
+    //         'regi_email' => ['required', 'email', Rule::unique('users', 'email')],
+    //         'regi_password' => ['required', 'min:3', 'confirmed'],
+    //         'regi_customer_number' => 'required|string',
+    //     ]);
 
-        $result = KlantNummerCheck::isValid($request->regi_customer_number);
+    //     $result = KlantNummerCheck::isValid($request->regi_customer_number);
 
-    //    dd($result); 
+    // //    dd($result); 
 
-        if (!$result['valid']) {
-            return back()
-                ->withErrors(['regi_customer_number' => $result['message']])
-                ->withInput();
-        }
+    //     if (!$result['valid']) {
+    //         return back()
+    //             ->withErrors(['regi_customer_number' => $result['message']])
+    //             ->withInput();
+    //     }
 
 
-        $register = new User();
-		$register->first_name = $request['regi_first_name'];
-		$register->last_name = $request['regi_last_name'];
-		$register->phone_number = $request['regi_phone_number'];
-        $register->email = $request['regi_email'];
-        $register->password = bcrypt($request['regi_password']);
-        $register->customer_number = $request['regi_customer_number'];
+    //     $register = new User();
+	// 	$register->first_name = $request['regi_first_name'];
+	// 	$register->last_name = $request['regi_last_name'];
+	// 	$register->phone_number = $request['regi_phone_number'];
+    //     $register->email = $request['regi_email'];
+    //     $register->password = bcrypt($request['regi_password']);
+    //     $register->customer_number = $request['regi_customer_number'];
 
-        // $register->password = bcrypt(request('RegiPassword'));
+    //     // $register->password = bcrypt(request('RegiPassword'));
 
-		// dd($register);
+	// 	// dd($register);
 
-        $register->save();
+    //     $register->save();
         
-        Session::put('registratie', $register);
-        auth()->login($register);
+    //     Session::put('registratie', $register);
+    //     auth()->login($register);
 
-        return redirect('/');
-    }
+    //     return redirect('/');
+    // }
 }
