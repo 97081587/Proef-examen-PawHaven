@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Routing\Controller;
 use App\Models\User;
 
-class logInController extends Controller
+class LogInController extends Controller
 {
 	public function index()
 	{
@@ -34,12 +34,13 @@ class logInController extends Controller
             }
         }
 
-        return back()->withErrors([
-            'login' => 'Klantnummer is onjuist.',
-        ]);
+        // return back()->withErrors([
+        //     'login' => 'Klantnummer is onjuist.',
+        // ]);
 
         // Login via email + password
         if ($request->filled('email')) {
+            //  dd($request->all());
             $request->validate([
                 'email' => 'required_without:customer_number|email',
                 'password' => 'required_with:email',
@@ -52,8 +53,8 @@ class logInController extends Controller
             }
         }
 
-        return back()->withErrors([
-            'login' => 'Inloggegevens zijn onjuist.',
-        ]);
+        // return back()->withErrors([
+        //     'login' => 'Inloggegevens zijn onjuist.',
+        // ]);
     }
 }
