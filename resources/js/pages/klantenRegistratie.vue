@@ -3,6 +3,7 @@
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import Logo from "../components/logo.vue";
+import axios from "axios";
 
 const form = useForm({
     regiFirstName: "",
@@ -14,30 +15,62 @@ const form = useForm({
     regiCustomerNumber: "",
 });
 
-// validatie
-const submit = () => {
-    if (form.regiPassword !== form.regiPasswordConfirmation) {
-        alert("Wachtwoorden komen niet overeen");
-        return;
+const submit = async () => {
+  if (form.regiPassword !== form.regiPasswordConfirmation) {
+    alert("Wachtwoorden komen niet overeen");
+    return;
+  }
+
+  try {
+    const response = await axios.post("/api/register", {
+      first_name: form.regiFirstName,
+      last_name: form.regiLastName,
+      phone_number: form.regiPhoneNumber,
+      email: form.regiMail,
+      password: form.regiPassword,
+      password_confirmation: form.regiPasswordConfirmation,
+      customer_number: form.regiCustomerNumber
+    });
+
+    alert(response.data.message); // success message
+    form.reset(); // formulier resetten
+  } catch (error) {
+    if (error.response && error.response.status === 422) {
+      // validatie errors
+      const errors = error.response.data.errors;
+      alert(Object.values(errors).flat().join("\n"));
+    } else if (error.response && error.response.data.message) {
+      alert(error.response.data.message);
+    } else {
+      alert("Er is iets misgegaan, probeer opnieuw.");
     }
-
-    form.post("/registratie", {
-        onSuccess: () => {
-            form.reset();
-        },
-    });
-
-    // Send data to Laravel
-    Inertia.post("/registratie", {
-        regi_first_name: form.regiFirstName,
-        regi_last_name: form.regiLastName,
-        regi_email: form.regiMail,
-        regi_phone_number: form.regiPhoneNumber,
-        regi_password: form.regiPassword,
-        regi_password_confirmation: form.regiPasswordConfirmation,
-        regi_customer_number: form.regiCustomerNumber,
-    });
+  }
 };
+
+// validatie
+// const submit = () => {
+//     if (form.regiPassword !== form.regiPasswordConfirmation) {
+//         alert("Wachtwoorden komen niet overeen");
+//         return;
+//     }
+
+//     form.post("/registratie", {
+//         onSuccess: () => {
+//             form.reset();
+//         },
+//     });
+
+//     // Send data to Laravel
+//     Inertia.post("/registratie", {
+//         regi_first_name: form.regiFirstName,
+//         regi_last_name: form.regiLastName,
+//         regi_email: form.regiMail,
+//         regi_phone_number: form.regiPhoneNumber,
+//         regi_password: form.regiPassword,
+//         regi_password_confirmation: form.regiPasswordConfirmation,
+//         regi_customer_number: form.regiCustomerNumber,
+//     });
+// };
 </script>
 
 <template>
