@@ -27,6 +27,7 @@ class klantenHomeController extends BaseController
         $user->last_name = bcrypt($user->last_name);
         $user->phone_number = bcrypt($user->phone_number);
         $user->email = bcrypt($user->email);
+        $user->customer_number = bcrypt($user->customer_number);
         // $user->password = bcrypt($user->password); // optional, already hashed
 
         $user->save();
