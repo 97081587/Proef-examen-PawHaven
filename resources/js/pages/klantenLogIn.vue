@@ -1,6 +1,8 @@
 <script setup>
+import axios from "axios";
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
     customer_number: "",
@@ -8,28 +10,47 @@ const form = useForm({
     password: "",
 });
 
-const submitKlantNummer = () => {
-    if (!form.customer_number) {
-        alert("Vul klantnummer in");
-        return;
+// const submitKlantNummer = () => {
+//     if (!form.customer_number) {
+//         alert("Vul klantnummer in");
+//         return;
+//     }
+
+//     form.post("/login", {
+//         onSuccess: () => 
+//         form.reset(),
+//     });
+// };
+
+// const submitEmailPassword = () => {
+//     if (!form.email || !form.password) {
+//         alert("Vul e-mail en wachtwoord in");
+//         return;
+//     }
+
+//     form.post("/login", {
+//         onSuccess: () =>
+//             form.reset(),
+//     });
+// };
+const submit = async () => {
+    try {
+        const response = await axios.post("/api/login", {
+            // customer_number: form.customer_number,
+            email: form.email,
+            password: form.password
+        });
+
+        Inertia.visit("/");
+        form.reset(); // formulier resetten
+
+    } catch (error) {
+        if (error.response) {
+            alert(error.response.data.message);
+        } else {
+            alert("Er is iets misgegaan.");
+        }
     }
-
-    form.post("/login", {
-        onSuccess: () => 
-        form.reset(),
-    });
-};
-
-const submitEmailPassword = () => {
-    if (!form.email || !form.password) {
-        alert("Vul e-mail en wachtwoord in");
-        return;
-    }
-
-    form.post("/login", {
-        onSuccess: () =>
-            form.reset(),
-    });
 };
 </script>
 

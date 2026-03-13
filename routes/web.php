@@ -9,15 +9,13 @@ use App\Http\Controllers\headerController as header;
 
 //login
 Route::get('/login', [LogIn::class, 'index'])->name('logIn');
-Route::post('/login', [LogIn::class, 'login']);
 
 //registratie
 Route::get('/registratie', [KlantenRegistratie::class, 'index']);
-Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
 
 //home
 Route::get('/', [KlantenHome::class, 'index']);
-Route::post('/delete-account', [KlantenHome::class, 'dataHash']);
+// Route::post('/delete-account', [KlantenHome::class, 'dataHash']);
 
 //header
-Route::post('/logout', [header::class, 'logout'])->name('logout');
+// Route::post('/logout', [header::class, 'logout'])->name('logout');

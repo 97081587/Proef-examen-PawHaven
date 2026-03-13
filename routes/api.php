@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\KlantRegistratieController;
+use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
+use App\Http\Controllers\Api\klantenLogInControllerAPI;
+use App\Http\Controllers\Api\klantenHomeControllerAPI;
 
 // Route::get('/test', function () {
 //     return response()->json([
@@ -10,7 +12,17 @@ use App\Http\Controllers\Api\KlantRegistratieController;
 //     ]);
 // });
 
-Route::get('/users', [UserController::class, 'index']);
-Route::post('/users', [UserController::class, 'store']);
+// Route::get('/users', [UserController::class, 'index']);
+// Route::post('/users', [UserController::class, 'store']);
 
-Route::post('/register', [KlantRegistratieController::class, 'store']);
+
+//login
+Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
+
+//registratie
+Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
+
+//home
+// Route::post('/delete-account', [KlantenHome::class, 'dataHash']);
+
+//header
