@@ -32,7 +32,9 @@ const submit = async () => {
       customer_number: form.regiCustomerNumber
     });
 
-    alert(response.data.message); // success message
+    Inertia.visit("/");
+
+    // alert(response.data.message); // success message
     form.reset(); // formulier resetten
   } catch (error) {
     if (error.response && error.response.status === 422) {
