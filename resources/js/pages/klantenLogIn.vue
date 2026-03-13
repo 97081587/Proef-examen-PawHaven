@@ -14,23 +14,46 @@ const submitKlantNummer = () => {
         return;
     }
 
-    form.post("/login", {
-        onSuccess: () => 
-        form.reset(),
-    });
-};
+//     form.post("/login", {
+//         onSuccess: () => 
+//         form.reset(),
+//     });
+// };
 
-const submitEmailPassword = () => {
-    if (!form.email || !form.password) {
-        alert("Vul e-mail en wachtwoord in");
-        return;
-    }
+// const submitEmailPassword = () => {
+//     if (!form.email || !form.password) {
+//         alert("Vul e-mail en wachtwoord in");
+//         return;
+//     }
 
-    form.post("/login", {
-        onSuccess: () =>
-            form.reset(),
+//     form.post("/login", {
+//         onSuccess: () =>
+//             form.reset(),
+//     });
+// };
+
+try {
+    const response = await axios.post("/api/login", {
+      customer_number: form.customer_number,
+      email: form.email,
+      password: form.password
     });
-};
+
+    inertia.visit("/");
+
+     alert(response.data.message); // success message
+     form.reset(); // formulier resetten
+   } catch (error) {
+     if (error.response && error.response.status === 422) {
+       // validatie errors
+       const errors = error.response.data.errors;
+       alert(Object.values(errors).flat().join("\n"));
+     } else if (error.response && error.response.data.message) {
+       alert(error.response.data.message);
+     } else {
+       alert("Er is iets misgegaan, probeer opnieuw.");
+     }
+}
 </script>
 
 <template>

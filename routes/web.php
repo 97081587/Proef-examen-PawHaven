@@ -13,7 +13,7 @@ Route::post('/login', [LogIn::class, 'login']);
 
 //registratie
 Route::get('/registratie', [KlantenRegistratie::class, 'index']);
-Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
+// Route::post('/registratie', [KlantenRegistratie::class, 'registreren']);
 
 //home
 Route::get('/', [KlantenHome::class, 'index']);

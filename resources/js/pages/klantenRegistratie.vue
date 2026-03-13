@@ -48,31 +48,6 @@ const submit = async () => {
     }
   }
 };
-
-// validatie
-// const submit = () => {
-//     if (form.regiPassword !== form.regiPasswordConfirmation) {
-//         alert("Wachtwoorden komen niet overeen");
-//         return;
-//     }
-
-//     form.post("/registratie", {
-//         onSuccess: () => {
-//             form.reset();
-//         },
-//     });
-
-//     // Send data to Laravel
-//     Inertia.post("/registratie", {
-//         regi_first_name: form.regiFirstName,
-//         regi_last_name: form.regiLastName,
-//         regi_email: form.regiMail,
-//         regi_phone_number: form.regiPhoneNumber,
-//         regi_password: form.regiPassword,
-//         regi_password_confirmation: form.regiPasswordConfirmation,
-//         regi_customer_number: form.regiCustomerNumber,
-//     });
-// };
 </script>
 
 <template>

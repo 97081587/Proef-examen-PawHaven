@@ -12,8 +12,8 @@ use App\Http\Controllers\Api\klantenHomeControllerAPI;
 //     ]);
 // });
 
-Route::get('/users', [UserController::class, 'index']);
-Route::post('/users', [UserController::class, 'store']);
+// Route::get('/users', [UserController::class, 'index']);
+// Route::post('/users', [UserController::class, 'store']);
 
 Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
