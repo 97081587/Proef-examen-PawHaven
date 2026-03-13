@@ -24,13 +24,17 @@ class klantenLogInControllerAPI extends Controller
                 $request->session()->regenerate();
 
                 // dd($request->all());
-                // return redirect('/');
-            }
-        }
 
-        // return back()->withErrors([
-        //     'login' => 'Klantnummer is onjuist.',
-        // ]);
+                return response()->json([
+                    'message' => 'Succesvol ingelogd',
+                    'user' => $user
+                ]);
+            }
+
+            return response()->json([
+                'message' => 'Klantnummer is onjuist.'
+            ], 401);
+        }
 
         // Login via email + password
         if ($request->filled('email')) {
@@ -43,12 +47,19 @@ class klantenLogInControllerAPI extends Controller
             if (auth()->attempt($request->only('email', 'password'))) {
                 $request->session()->regenerate();
                 // dd($request->all());
-                // return redirect('/');
+                return response()->json([
+                    'message' => 'Succesvol ingelogd',
+                    'user' => auth()->user()
+                ]);
             }
+
+            return response()->json([
+                'message' => 'Email of wachtwoord is onjuist.'
+            ], 401);
         }
 
-        // return back()->withErrors([
-        //     'login' => 'Inloggegevens zijn onjuist.',
-        // ]);
+        return response()->json([
+            'message' => 'Geen login gegevens ontvangen.'
+        ], 400);
     }
 }

@@ -31,29 +31,19 @@ const submitKlantNummer = () => {
 //             form.reset(),
 //     });
 // };
+const submit = async () => {
+    try {
+        const response = await axios.post("/api/login", {
+            customer_number: form.customer_number,
+            email: form.email,
+            password: form.password
+        });
 
-try {
-    const response = await axios.post("/api/login", {
-      customer_number: form.customer_number,
-      email: form.email,
-      password: form.password
-    });
-
-    inertia.visit("/");
-
-     alert(response.data.message); // success message
-     form.reset(); // formulier resetten
-   } catch (error) {
-     if (error.response && error.response.status === 422) {
-       // validatie errors
-       const errors = error.response.data.errors;
-       alert(Object.values(errors).flat().join("\n"));
-     } else if (error.response && error.response.data.message) {
-       alert(error.response.data.message);
-     } else {
-       alert("Er is iets misgegaan, probeer opnieuw.");
-     }
-}
+            inertia.visit("/");
+        } catch (error) {
+            alert(error.response.data.message);
+    }
+};
 </script>
 
 <template>
