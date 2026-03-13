@@ -1,6 +1,8 @@
 <script setup>
+import axios from "axios";
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
     customer_number: "",
@@ -8,11 +10,11 @@ const form = useForm({
     password: "",
 });
 
-const submitKlantNummer = () => {
-    if (!form.customer_number) {
-        alert("Vul klantnummer in");
-        return;
-    }
+// const submitKlantNummer = () => {
+//     if (!form.customer_number) {
+//         alert("Vul klantnummer in");
+//         return;
+//     }
 
 //     form.post("/login", {
 //         onSuccess: () => 
@@ -39,9 +41,15 @@ const submit = async () => {
             password: form.password
         });
 
-            inertia.visit("/");
-        } catch (error) {
+        Inertia.visit("/");
+        form.reset(); // formulier resetten
+
+    } catch (error) {
+        if (error.response) {
             alert(error.response.data.message);
+        } else {
+            alert("Er is iets misgegaan.");
+        }
     }
 };
 </script>

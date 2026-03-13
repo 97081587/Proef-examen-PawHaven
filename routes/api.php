@@ -15,8 +15,14 @@ use App\Http\Controllers\Api\klantenHomeControllerAPI;
 // Route::get('/users', [UserController::class, 'index']);
 // Route::post('/users', [UserController::class, 'store']);
 
-Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
+//login
 Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
 
-Route::post('/', [klantenHomeControllerAPI::class, 'index']);
+//registratie
+Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
+
+//home
+// Route::post('/delete-account', [KlantenHome::class, 'dataHash']);
+
+//header
