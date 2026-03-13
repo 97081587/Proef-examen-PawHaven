@@ -36,7 +36,7 @@ const form = useForm({
 const submit = async () => {
     try {
         const response = await axios.post("/api/login", {
-            customer_number: form.customer_number,
+            // customer_number: form.customer_number,
             email: form.email,
             password: form.password
         });
