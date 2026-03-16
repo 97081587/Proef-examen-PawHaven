@@ -38,7 +38,8 @@ const submit = async () => {
         const response = await axios.post("/api/login", {
             // customer_number: form.customer_number,
             email: form.email,
-            password: form.password
+            password: form.password,
+            customer_number: form.customer_number
         });
 
         Inertia.visit("/");
@@ -73,7 +74,7 @@ const submit = async () => {
                     <div class="">
                         <!-- log in with klantnummer -->
                         <form
-                            @submit.prevent="submitKlantNummer"
+                            @submit.prevent="submit"
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
                         >
                             <div>
@@ -101,7 +102,7 @@ const submit = async () => {
 
                         <!-- log in with email + passwoord -->
                         <form
-                            @submit.prevent="submitEmailPassword"
+                            @submit.prevent="submit"
                             class="flex flex-col z-40 relative ml-10 mr-10"
                         >
                             <div>

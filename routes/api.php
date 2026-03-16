@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\UserController;
+// use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
 use App\Http\Controllers\Api\klantenLogInControllerAPI;
 use App\Http\Controllers\Api\klantenHomeControllerAPI;
