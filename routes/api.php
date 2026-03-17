@@ -17,7 +17,7 @@ use App\Http\Controllers\Api\klantenHomeControllerAPI;
 
 
 //login
-Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
+// Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
 
 //registratie
 Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
