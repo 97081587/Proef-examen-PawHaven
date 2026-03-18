@@ -5,6 +5,7 @@ import { Inertia } from '@inertiajs/inertia'
 const deleteAccount = () => {
   if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
     Inertia.post('/delete-account');
+    Inertia.visit("/login");
   } else {
     return;
   }
