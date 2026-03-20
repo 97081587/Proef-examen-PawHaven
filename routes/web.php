@@ -10,6 +10,8 @@ use App\Http\Controllers\headerController as header;
 
 //login
 Route::get('/login', [LogIn::class, 'index'])->name('logIn');
+
+// zit hier voor de session
 Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
 
 //registratie
@@ -17,8 +19,10 @@ Route::get('/registratie', [KlantenRegistratie::class, 'index']);
 
 //home
 Route::get('/', [KlantenHome::class, 'index']);
-Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize']
-    ->middleware('auth'));
+
+// zit hier voor de session
+Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
+    ->middleware('auth');
 
 //header
 // Route::post('/logout', [header::class, 'logout'])->name('logout');

@@ -34,6 +34,6 @@ class klantenHomeControllerAPI extends Controller
 
         return response()->json([
             'message' => 'Account geanonimiseerd'
-        ], 200);
+        ]);
     }
 }
