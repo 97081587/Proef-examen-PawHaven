@@ -1,13 +1,18 @@
 <script setup>
 import Header from '../layouts/header.vue';
-import { Inertia } from '@inertiajs/inertia'
+import { Inertia } from '@inertiajs/inertia';
+import axios from 'axios';
 
-const deleteAccount = () => {
+const deleteAccount = async () => {
   if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
-    Inertia.post('/delete-account');
-    Inertia.visit("/login");
-  } else {
-    return;
+    // Inertia.post('/delete-account', {}, {
+    //   onSuccess: () => {
+    //     Inertia.visit('/login');
+    //   }   
+    // });
+    await axios.post('/delete-account');
+
+    Inertia.visit('/login');
   }
 }
 

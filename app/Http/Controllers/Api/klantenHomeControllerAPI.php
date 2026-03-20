@@ -4,23 +4,26 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class klantenHomeControllerAPI extends Controller
 {
-        // alle data wordt gehashed
-    public function dataHash(Request $request)
+        // alle data wordt geanonimiseerd
+    public function anonymize(Request $request)
     {
         $user = Auth::user(); // get the currently logged-in user
 
         if (!$user) {
-            return redirect('/login'); // safety check
+            return response()->json([
+                'message' => 'Geen ingelogde gebruiker gevonden'
+            ], 401);
         }
 
-        $user->first_name = bcrypt($user->first_name);
-        $user->last_name = bcrypt($user->last_name);
-        $user->phone_number = bcrypt($user->phone_number);
-        $user->email = bcrypt($user->email);
-        $user->customer_number = bcrypt($user->customer_number);
+        $user->first_name = 'deleted';
+        $user->last_name = 'deleted';
+        $user->phone_number = null;
+        $user->email = 'deleted_' . $user->id . '@anon.local'; // unique email to prevent conflicts
+        $user->customer_number = 'deleted';
         // $user->password = bcrypt($user->password); // optional, already hashed
 
         $user->save();
@@ -29,6 +32,8 @@ class klantenHomeControllerAPI extends Controller
         $request->session()->invalidate(); // destroys session
         $request->session()->regenerateToken(); // prevents CSRF reuse
 
-        return redirect('/login');
+        return response()->json([
+            'message' => 'Account geanonimiseerd'
+        ]);
     }
 }
