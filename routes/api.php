@@ -23,6 +23,6 @@ use App\Http\Controllers\Api\klantenHomeControllerAPI;
 Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
 //home
-Route::post('/delete-account', [klantenHomeControllerAPI::class, 'dataHash']);
+Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize']);
 
 //header

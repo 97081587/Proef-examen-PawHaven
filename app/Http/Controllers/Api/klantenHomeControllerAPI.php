@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class klantenHomeControllerAPI extends Controller
 {
         // alle data wordt gehashed
-    public function dataHash(Request $request)
+    public function anonymize(Request $request)
     {
         $user = Auth::user(); // get the currently logged-in user
 
@@ -16,11 +16,11 @@ class klantenHomeControllerAPI extends Controller
             return redirect('/login'); // safety check
         }
 
-        $user->first_name = bcrypt($user->first_name);
-        $user->last_name = bcrypt($user->last_name);
-        $user->phone_number = bcrypt($user->phone_number);
-        $user->email = bcrypt($user->email);
-        $user->customer_number = bcrypt($user->customer_number);
+        $user->first_name = 'deleted';
+        $user->last_name = 'deleted';
+        $user->phone_number = null;
+        $user->email = null;
+        $user->customer_number = 'deleted';
         // $user->password = bcrypt($user->password); // optional, already hashed
 
         $user->save();
