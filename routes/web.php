@@ -4,9 +4,10 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
 use App\Http\Controllers\logInController as LogIn;
-use App\Http\Controllers\Api\klantenLogInControllerAPI;
 use App\Http\Controllers\klantenHomeController as KlantenHome;
 use App\Http\Controllers\headerController as header;
+use App\Http\Controllers\Api\klantenLogInControllerAPI;
+use App\Http\Controllers\Api\klantenHomeControllerAPI;
 
 //login
 Route::get('/login', [LogIn::class, 'index'])->name('logIn');
