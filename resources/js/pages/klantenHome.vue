@@ -3,6 +3,8 @@ import Header from '../layouts/header.vue';
 import { Inertia } from '@inertiajs/inertia';
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 const deleteAccount = async () => {
   if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
     // Inertia.post('/delete-account', {}, {
