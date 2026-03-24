@@ -10,48 +10,24 @@ const form = useForm({
     password: "",
 });
 
-// const submitKlantNummer = () => {
-//     if (!form.customer_number) {
-//         alert("Vul klantnummer in");
-//         return;
-//     }
-
-//     form.post("/login", {
-//         onSuccess: () => 
-//         form.reset(),
-//     });
-// };
-
-// const submitEmailPassword = () => {
-//     if (!form.email || !form.password) {
-//         alert("Vul e-mail en wachtwoord in");
-//         return;
-//     }
-
-//     form.post("/login", {
-//         onSuccess: () =>
-//             form.reset(),
-//     });
-// };
-const submit = async () => {
-    try {
-        const response = await axios.post("/login", {
-            // customer_number: form.customer_number,
-            email: form.email,
-            password: form.password,
-            customer_number: form.customer_number
-        });
-
-        Inertia.visit("/");
-        form.reset(); // formulier resetten
-
-    } catch (error) {
-        if (error.response) {
-            alert(error.response.data.message);
-        } else {
-            alert("Er is iets misgegaan.");
-        }
+// Gebruik **één submit functie**, geen nested function
+const submit = () => {
+    // Valideer eventueel eerst front-end
+    if (!form.email && !form.customer_number) {
+        alert("Vul e-mail of klantnummer in.");
+        return;
     }
+    
+    form.post("/login", {
+        onSuccess: () => {
+            // redirect naar home na login
+            Inertia.visit("/");
+            form.reset(); // formulier resetten
+        },
+        onError: (errors) => {
+            console.log(errors); // optioneel debug
+        },
+    });
 };
 </script>
 
@@ -131,9 +107,7 @@ const submit = async () => {
                         </form>
 
                         <!-- links to registration and admin log in -->
-                        <div
-                            class=" text-black opacity-[0.54] mt-5 ml-5 gap-2"
-                        >
+                        <div class="text-black opacity-[0.54] mt-5 ml-5 gap-2">
                             <a href="/registratie"
                                 >Nog geen klant? • Registreren</a
                             >
