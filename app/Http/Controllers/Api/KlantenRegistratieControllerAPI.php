@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Services\KlantNummerCheck;
 
-class KlantRegistratieController extends Controller
+class KlantenRegistratieControllerAPI extends Controller
 {
     public function store(Request $request)
     {
