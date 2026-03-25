@@ -12,9 +12,9 @@ class klantenLogInControllerAPI extends Controller
 
         // Login via klantnummer
         if ($request->filled('customer_number')) {
-            $request->validate([
-                'customer_number' => 'required_without:email',
-            ]);
+            // $request->validate([
+            //     'customer_number' => 'required_without:email',
+            // ]);
 
             //alleen inloggen met klantnummer zonder wachtwoord
             $user = User::where('customer_number', $request->customer_number)->first();
@@ -23,43 +23,42 @@ class klantenLogInControllerAPI extends Controller
                 auth()->login($user);
                 $request->session()->regenerate();
 
+                 return redirect('/');
+
                 // dd($request->all());
 
-                return response()->json([
-                    'message' => 'Succesvol ingelogd',
-                    'user' => $user
-                ]);
+                // return response()->json([
+                //     'message' => 'Succesvol ingelogd',
+                //     'user' => $user
+                // ]);
             }
 
-            return response()->json([
-                'message' => 'Klantnummer is onjuist.'
-            ], 401);
+            return back()->withErrors([
+                'login' => 'Klantnummer is onjuist.'
+            ]);
         }
 
         // Login via email + password
         if ($request->filled('email')) {
             //  dd($request->all());
-            $request->validate([
-                'email' => 'required_without:customer_number|email',
-                'password' => 'required_with:email',
-            ]);
+            // $request->validate([
+            //     'email' => 'required_without:customer_number|email',
+            //     'password' => 'required_with:email',
+            // ]);
 
             if (auth()->attempt($request->only('email', 'password'))) {
                 $request->session()->regenerate();
                 // dd($request->all());
-                return response()->json([
-                    'message' => 'Succesvol ingelogd',
-                    'user' => auth()->user()
-                ]);
+                return redirect('/');
             }
 
-            return response()->json([
-                'message' => 'Email of wachtwoord is onjuist.'
-            ], 401);
+          return back()->withErrors([
+                'login' => 'Email of wachtwoord is onjuist.'
+            ]);
         }
 
-        return response()->json([
-            'message' => 'Geen login gegevens ontvangen.'
-        ], 400);
+        return back()->withErrors([
+            'login' => 'Geen login gegevens ontvangen.'
+        ]);
     }
 }
