@@ -1,5 +1,4 @@
 <script setup>
-import axios from "axios";
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
@@ -21,7 +20,7 @@ const submit = () => {
     form.post("/login", {
         onSuccess: () => {
             // redirect naar home na login
-            Inertia.visit("/");
+            // Inertia.visit("/");
             form.reset(); // formulier resetten
         },
         onError: (errors) => {
