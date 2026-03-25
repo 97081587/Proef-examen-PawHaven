@@ -7,17 +7,18 @@ axios.defaults.withCredentials = true;
 
 const deleteAccount = async () => {
   if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
-    // Inertia.post('/delete-account', {}, {
-    //   onSuccess: () => {
-    //     Inertia.visit('/login');
-    //   }   
-    // });
-    await axios.post('/delete-account');
-
-    Inertia.visit('/login');
+    try {
+      await axios.post('/delete-account');
+      Inertia.visit('/login');
+      } catch (error) {
+        if(error.response) {
+          alert(error.response.data.message || 'Er is iets misgegaan.');
+        } else {
+          alert('Er is iets misgegaan.');
+      }
+    }
   }
 }
-
 // defineProps({
 //   klantnummer: String
 // })
