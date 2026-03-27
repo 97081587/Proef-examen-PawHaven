@@ -20,9 +20,6 @@ const deleteAccount = () => {
     });
   }
 };
-// defineProps({
-//   klantnummer: String
-// })
 </script>
 
 <template>
