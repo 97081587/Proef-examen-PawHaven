@@ -11,7 +11,7 @@ class klantenHomeControllerAPI extends Controller
         // alle data wordt geanonimiseerd
     public function anonymize(Request $request)
     {
-        dd(Auth::user());
+        // dd(auth()->check(), auth()->user());
         $user = Auth::user(); // get the currently logged-in user
         
         if (!$user) {
@@ -33,8 +33,8 @@ class klantenHomeControllerAPI extends Controller
         // $request->session()->invalidate(); // destroys session
         $request->session()->regenerateToken(); // prevents CSRF reuse
 
-        return response()->json([
-            'message' => 'Account geanonimiseerd'
-        ]);
+        // return response()->json([
+        //     'message' => 'Account geanonimiseerd'
+        // ]);
     }
 }

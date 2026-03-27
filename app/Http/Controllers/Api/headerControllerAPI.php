@@ -7,7 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
 
-class headerController extends BaseController
+class headerControllerAPI extends BaseController
 {
     //uitlog functie
     public function logout(Request $request)
