@@ -11,7 +11,7 @@ class klantenHomeControllerAPI extends Controller
         // alle data wordt geanonimiseerd
     public function anonymize(Request $request)
     {
-        dd(auth()->check(), auth()->user());
+        // dd(auth()->check(), auth()->user());
         $user = Auth::user(); // get the currently logged-in user
         
         if (!$user) {
