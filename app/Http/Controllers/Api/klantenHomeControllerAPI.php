@@ -33,8 +33,8 @@ class klantenHomeControllerAPI extends Controller
         // $request->session()->invalidate(); // destroys session
         $request->session()->regenerateToken(); // prevents CSRF reuse
 
-        return response()->json([
-            'message' => 'Account geanonimiseerd'
-        ]);
+        // return response()->json([
+        //     'message' => 'Account geanonimiseerd'
+        // ]);
     }
 }
