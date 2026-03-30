@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
 use App\Http\Controllers\LogInController;
 use App\Http\Controllers\klantenHomeController as KlantenHome;
-
+// api controllers
 use App\Http\Controllers\Api\HeaderControllerAPI;
 use App\Http\Controllers\Api\klantenLogInControllerAPI;
 use App\Http\Controllers\Api\klantenHomeControllerAPI;

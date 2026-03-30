@@ -38,12 +38,11 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => fn () => $request->user(),
-                // 'user' => $request->user()
-                // ? [
-                //     'klantnummer' => $request->user()->customer_number,
-                // ]
-                // : null,
+                'user' => $request->user()
+                ? [
+                    'klantnummer' => $request->user()->customer_number,
+                ]
+                : null,
             ],
         ]);
 
