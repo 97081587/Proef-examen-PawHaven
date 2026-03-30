@@ -4,10 +4,9 @@ import { usePage } from '@inertiajs/inertia-vue3'
 
 const page = usePage()
 
-console.log(page.props)
+// console.log(page.props)
 
-    // const user = page.props.auth?.user
-const klantnummer = page.props.auth?.user?.klantnummer ?? 'Geen klantnummer!'
+const klantnummer = page.props.auth?.user?.customer_number ?? 'Geen klantnummer gevonden!'
 
 const logOut = () => {
   Inertia.post('/logout')
@@ -22,7 +21,7 @@ const logOut = () => {
 
         <div class="text-right">
             <p class="cursor-pointer hover:underline" @click="logOut">Uitloggen</p>
-            <p class="text-sm mt-1">Mijn klantennummer: {{ klantnummer}}</p>
+            <p class="text-sm mt-1">Mijn klantennummer: {{ klantnummer }}</p>
         </div>
     </div>
 
