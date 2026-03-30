@@ -10,15 +10,5 @@ use App\Http\Controllers\headerControllerAPI as header;
 // Route::get('/users', [UserController::class, 'index']);
 // Route::post('/users', [UserController::class, 'store']);
 
-//login
-// Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
-
-//registratie
+//registratie (maakt een session aan)
 Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
-
-//home
-// Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
-//     ->middleware('auth');
-
-//header
-// Route::post('/logout', [header::class, 'logout'])->name('logout');
