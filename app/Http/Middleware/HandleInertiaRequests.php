@@ -47,4 +47,8 @@ class HandleInertiaRequests extends Middleware
         ]);
 
     }
+
+    Inertia::share([
+        'auth.user' => fn () => auth()->user(),
+    ]);
 }
