@@ -21,4 +21,4 @@ Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 //     ->middleware('auth');
 
 //header
-Route::post('/logout', [header::class, 'logout'])->name('logout');
+// Route::post('/logout', [header::class, 'logout'])->name('logout');

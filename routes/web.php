@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\klantenHomeController as KlantenHome;
-// use App\Http\Controllers\Api\headerControllerAPI as header;
+use App\Http\Controllers\Api\headerControllerAPI as header;
 use App\Http\Controllers\Api\klantenLogInControllerAPI;
 use App\Http\Controllers\Api\klantenHomeControllerAPI;
 
@@ -26,4 +26,4 @@ Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
     ->middleware('auth');
 
 //header
-// Route::post('/logout', [header::class, 'logout'])->name('logout');
+Route::post('/logout', [header::class, 'logout'])->name('logout');
