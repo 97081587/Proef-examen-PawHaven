@@ -22,7 +22,7 @@ const logOut = () => {
 
         <div class="text-right">
             <p class="cursor-pointer hover:underline" @click="logOut">Uitloggen</p>
-            <p class="text-sm mt-1">Mijn klantennummer: {{ user}}</p>
+            <p class="text-sm mt-1">Mijn klantennummer: {{ user }}</p>
         </div>
     </div>
 
