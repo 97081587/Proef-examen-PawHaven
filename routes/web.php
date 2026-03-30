@@ -19,7 +19,7 @@ Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
 Route::get('/registratie', [KlantenRegistratie::class, 'index']);
 
 //home
-Route::get('/', [KlantenHome::class, 'index']);
+Route::get('/', [KlantenHome::class, 'index'])->middleware('auth');
 
 // zit hier voor de session
 Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
