@@ -4,7 +4,7 @@ import { usePage } from '@inertiajs/inertia-vue3'
 
 const page = usePage()
 
-console.log(page.props)
+// console.log(page.props)
 
 const klantnummer = page.props.auth?.user?.customer_number ?? 'Geen klantnummer gevonden!'
 
