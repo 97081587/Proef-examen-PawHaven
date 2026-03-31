@@ -17,7 +17,7 @@ const submit = () => {
         return;
     }
     
-    form.post("/api/login", {
+    form.post("/login", {
         onSuccess: () => {
             // redirect naar home na login
             // Inertia.visit("/");

@@ -13,7 +13,7 @@ if (token) {
 
 const deleteAccount = () => {
   if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
-    Inertia.post('/api/delete-account', {}, {
+    Inertia.post('/delete-account', {}, {
       onSuccess: () => {
         Inertia.visit('/login');
       }

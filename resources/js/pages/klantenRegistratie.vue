@@ -22,7 +22,7 @@ const submit = async () => {
   }
 
   try {
-    const response = await axios.post("/api/register", {
+    const response = await axios.post("/register", {
       first_name: form.regiFirstName,
       last_name: form.regiLastName,
       phone_number: form.regiPhoneNumber,

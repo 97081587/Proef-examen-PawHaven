@@ -2,31 +2,30 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
+use App\Http\Controllers\KlantenRegistratieController;
 use App\Http\Controllers\LogInController;
-use App\Http\Controllers\klantenHomeController as KlantenHome;
+use App\Http\Controllers\KlantenHomeController;
 // api controllers
-// use App\Http\Controllers\Api\HeaderControllerAPI;
-// use App\Http\Controllers\Api\klantenLogInControllerAPI;
-// use App\Http\Controllers\Api\klantenHomeControllerAPI;
+use App\Http\Controllers\Api\HeaderControllerAPI;
+use App\Http\Controllers\Api\KlantenLogInControllerAPI;
+use App\Http\Controllers\Api\KlantenHomeControllerAPI;
+use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
 
 //login
 Route::get('/login', [LogInController::class, 'index'])->name('login');
 
 //registratie
-Route::get('/registratie', [KlantenRegistratie::class, 'index']);
+Route::get('/registratie', [KlantenRegistratieController::class, 'index']);
 
 //home
-Route::get('/', [KlantenHome::class, 'index'])->middleware('auth');
+Route::get('/', [KlantenHomeController::class, 'index'])->middleware('auth');
 
+//api controllers zitten hier voor de ingelogde session
+Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
-//moet waarschijnlijk in api.php
-// // zit hier voor de session
-// Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
+Route::post('/login', [KlantenLogInControllerAPI::class, 'login']);
 
-// // zit hier voor de session
-// Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
-//     ->middleware('auth');
+Route::post('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
+    ->middleware('auth');
 
-// //header
-// Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
+Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
