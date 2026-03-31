@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
-use App\Http\Controllers\Api\KlantenLogInControllerAPI;
-use App\Http\Controllers\Api\KlantenHomeControllerAPI;
-use App\Http\Controllers\Api\HeaderControllerAPI;
+
+// use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
+// use App\Http\Controllers\Api\KlantenLogInControllerAPI;
+// use App\Http\Controllers\Api\KlantenHomeControllerAPI;
+// use App\Http\Controllers\Api\HeaderControllerAPI;
 
 // Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
