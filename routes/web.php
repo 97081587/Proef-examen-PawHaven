@@ -6,9 +6,9 @@ use App\Http\Controllers\klantenRegistratieController as KlantenRegistratie;
 use App\Http\Controllers\LogInController;
 use App\Http\Controllers\klantenHomeController as KlantenHome;
 // api controllers
-use App\Http\Controllers\Api\HeaderControllerAPI;
-use App\Http\Controllers\Api\klantenLogInControllerAPI;
-use App\Http\Controllers\Api\klantenHomeControllerAPI;
+// use App\Http\Controllers\Api\HeaderControllerAPI;
+// use App\Http\Controllers\Api\klantenLogInControllerAPI;
+// use App\Http\Controllers\Api\klantenHomeControllerAPI;
 
 //login
 Route::get('/login', [LogInController::class, 'index'])->name('login');
@@ -21,12 +21,12 @@ Route::get('/', [KlantenHome::class, 'index'])->middleware('auth');
 
 
 //moet waarschijnlijk in api.php
-// zit hier voor de session
-Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
+// // zit hier voor de session
+// Route::post('/login', [klantenLogInControllerAPI::class, 'login']);
 
-// zit hier voor de session
-Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
-    ->middleware('auth');
+// // zit hier voor de session
+// Route::post('/delete-account', [klantenHomeControllerAPI::class, 'anonymize'])
+//     ->middleware('auth');
 
-//header
-Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
+// //header
+// Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
