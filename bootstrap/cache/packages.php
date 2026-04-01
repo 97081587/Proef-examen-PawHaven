@@ -1,4 +1,13 @@
 <?php return array (
+  'api-platform/laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ApiPlatform\\Laravel\\ApiPlatformProvider',
+      1 => 'ApiPlatform\\Laravel\\ApiPlatformDeferredProvider',
+      2 => 'ApiPlatform\\Laravel\\Eloquent\\ApiPlatformEventProvider',
+    ),
+  ),
   'inertiajs/inertia-laravel' => 
   array (
     'providers' => 
