@@ -4,8 +4,9 @@ namespace App\ApiResource;
 namespace App\State;
 
 use ApiPlatform\Metadata\Get;
+use App\State\UserProvider;
 
-#[Get(uriTemplate: '/user/{id}')]
+#[Get(uriTemplate: '/user/{id}', provider: UserProvider::class)]
 class UserDTO
 {
     public function __construct(
