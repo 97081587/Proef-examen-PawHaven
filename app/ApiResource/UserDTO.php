@@ -1,9 +1,11 @@
 <?php
 
 namespace App\ApiResource;
+namespace App\State;
 
 use ApiPlatform\Metadata\Get;
 
+#[Get(uriTemplate: '/user/{id}')]
 class UserDTO
 {
     public function __construct(
