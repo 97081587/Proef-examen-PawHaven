@@ -9,7 +9,7 @@ const form = useForm({
     password: "",
 });
 
-// Gebruik **één submit functie**, geen nested function
+
 const submit = () => {
     // Valideer eventueel eerst front-end
     if (!form.email && !form.customer_number) {
@@ -17,11 +17,11 @@ const submit = () => {
         return;
     }
     
-    form.post("/login", {
+    form.post("/api/login", {
         onSuccess: () => {
             // redirect naar home na login
-            // Inertia.visit("/");
             form.reset(); // formulier resetten
+            Inertia.visit("/");
         },
         onError: (errors) => {
             console.log(errors); // optioneel debug

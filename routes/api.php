@@ -8,11 +8,15 @@ use App\Http\Controllers\Api\KlantenLogInControllerAPI;
 use App\Http\Controllers\Api\KlantenHomeControllerAPI;
 use App\Http\Controllers\Api\HeaderControllerAPI;
 
-Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
-
+//login
 Route::post('/login', [KlantenLogInControllerAPI::class, 'login']);
 
-Route::post('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
-    ->middleware('auth');
+//registratie
+Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
+//home
+Route::post('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
+    ->middleware('auth:sanctum');
+
+//header
 Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
