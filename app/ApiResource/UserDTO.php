@@ -1,7 +1,6 @@
 <?php
 
 namespace App\ApiResource;
-namespace App\State;
 
 use ApiPlatform\Metadata\Get;
 use App\State\UserProvider;
