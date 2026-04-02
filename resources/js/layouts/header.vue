@@ -9,7 +9,7 @@ const page = usePage()
 const klantnummer = page.props.auth?.user?.klantnummer ?? 'Geen klantnummer gevonden!'
 
 const logOut = () => {
-  Inertia.post('/logout')
+  Inertia.post('/api/logout')
 }
 
 </script>
