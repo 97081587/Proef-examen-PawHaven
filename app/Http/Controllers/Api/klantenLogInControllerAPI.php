@@ -20,8 +20,6 @@ class klantenLogInControllerAPI extends Controller
                     // 'message' => 'Succesvol ingelogd',
                     'user' => $user
                 ]);
-
-                // dd($request->all());
             }
 
             return response()->json([
@@ -31,25 +29,19 @@ class klantenLogInControllerAPI extends Controller
 
         // Login via email + password
         if ($request->filled('email')) {
-            //  dd($request->all());
-            // $request->validate([
-            //     'email' => 'required_without:customer_number|email',
-            //     'password' => 'required_with:email',
-            // ]);
+  
+             $user = User::where('email', $request->email)->first();
 
-            // if (auth()->attempt($request->only('email', 'password'))) {
-            //     $request->session()->regenerate();
-            //     // dd($request->all());
-            //     return redirect('/');
-            // }
+            if (!$user || !Hash::check($request->password, $user->password)) {
+                return response()->json([
+                    'message' => 'Email of wachtwoord is onjuist.'
+                ]);
+            }
 
-          return response()->json([
-                'message' => 'Email of wachtwoord is onjuist.'
+            return response()->json([
+                'message' => 'Succesvol ingelogd',
+                'user' => $user
             ]);
         }
-
-        return response()->json([
-            'message' => 'Geen login gegevens ontvangen.'
-        ]);
     }
 }
