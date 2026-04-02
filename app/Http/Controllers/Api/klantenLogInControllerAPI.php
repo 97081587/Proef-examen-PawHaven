@@ -18,7 +18,7 @@ class klantenLogInControllerAPI extends Controller
 
             if ($user) {
                 return response()->json([
-                    // 'message' => 'Succesvol ingelogd',
+                    'message' => 'Succesvol ingelogd',
                     'user' => $user
                 ]);
             }

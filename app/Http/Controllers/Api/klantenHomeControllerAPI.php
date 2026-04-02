@@ -27,11 +27,11 @@ class klantenHomeControllerAPI extends Controller
         $user->customer_number = 'anon_' . $user->id;
         // $user->password = bcrypt($user->password); // optional, already hashed
 
-        $user->save();
+        // $user->save();
 
-        auth()->logout();
-        // $request->session()->invalidate(); // destroys session
-        $request->session()->regenerateToken(); // prevents CSRF reuse
+        // auth()->logout();
+        // // $request->session()->invalidate(); // destroys session
+        // $request->session()->regenerateToken(); // prevents CSRF reuse
 
         // return response()->json([
         //     'message' => 'Account geanonimiseerd'
