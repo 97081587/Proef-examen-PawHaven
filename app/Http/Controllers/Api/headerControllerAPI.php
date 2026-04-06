@@ -17,4 +17,12 @@ class HeaderControllerAPI extends BaseController
     //     $request->session()->regenerateToken(); // prevents CSRF reuse
     //     return redirect('/login');
     // }
+    public function logout(Request $request)
+{
+    $request->user()->currentAccessToken()->delete();
+
+    return response()->json([
+        'message' => 'Uitgelogd'
+    ]);
+}
 }

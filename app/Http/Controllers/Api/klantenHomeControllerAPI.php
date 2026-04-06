@@ -20,21 +20,17 @@ class klantenHomeControllerAPI extends Controller
             ], 401);
         }
 
-        $user->first_name = 'deleted';
-        $user->last_name = 'deleted';
-        $user->phone_number = 'deleted';
-        $user->email = 'deleted_' . $user->id . '@anon.local'; // unique email to prevent conflicts
-        $user->customer_number = 'anon_' . $user->id;
-        // $user->password = bcrypt($user->password); // optional, already hashed
+        $user->update([
+            'first_name' => 'deleted',
+            'last_name' => 'deleted',
+            'phone_number' => 'deleted',
+            'email' => 'deleted_' . $user->id . '@anon.local', // unique email to prevent conflicts
+            'customer_number' => 'anon_' . $user->id,
+            // 'password' => bcrypt($user->password), // optional, already hashed
+        ]);
 
-        // $user->save();
-
-        // auth()->logout();
-        // // $request->session()->invalidate(); // destroys session
-        // $request->session()->regenerateToken(); // prevents CSRF reuse
-
-        // return response()->json([
-        //     'message' => 'Account geanonimiseerd'
-        // ]);
+        return response()->json([
+            'message' => 'Account geanonimiseerd'
+        ], 200);
     }
 }
