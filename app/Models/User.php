@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use ApiPlatform\metadata\ApiResource;
+use Laravel\Sanctum\HasApiTokens;
 // use App\Services\KlantNummerCheck;
 
 #[ApiResource]
@@ -58,4 +59,10 @@ class User extends Authenticatable
     //         $user->customer_number = KlantNummerCheck::generate();
     //     });
     // }
+}
+
+
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable;
 }
