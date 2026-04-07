@@ -1,7 +1,6 @@
 <script setup>
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
     customer_number: "",
