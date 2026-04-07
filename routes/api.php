@@ -19,4 +19,4 @@ Route::post('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
     ->middleware('auth:sanctum');
 
 //header
-Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->name('logout');
+Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->middleware('auth:sanctum');

@@ -1,23 +1,24 @@
 <script setup>
 import Header from '../layouts/header.vue';
-import { Inertia } from '@inertiajs/inertia';
 import axios from 'axios';
 
-// axios.defaults.withCredentials = true;
+const deleteAccount = async () => {
+  if (confirm('Weet je zeker dat je je account wilt verwijderen?')) {
 
-const token = document.querySelector('meta[name="csrf-token"]');
+    const token = localStorage.getItem('token');
 
-if (token) {
-  axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-}
+    try {
+      await axios.post('/api/delete-account', {}, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
 
-const deleteAccount = () => {
-  if(confirm('Weet je zeker dat je je account wilt verwijderen?')) {
-    Inertia.post('/api/delete-account', {}, {
-      onSuccess: () => {
-        Inertia.visit('/login');
-      }
-    });
+      window.location.href = '/login';
+
+    } catch (error) {
+      console.error(error.response?.data);
+    }
   }
 };
 </script>
