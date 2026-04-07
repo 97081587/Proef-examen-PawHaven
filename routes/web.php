@@ -13,4 +13,4 @@ Route::get('/login', [LogInController::class, 'index'])->name('login');
 Route::get('/registratie', [KlantenRegistratieController::class, 'index']);
 
 //home
-Route::get('/', [KlantenHomeController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/', [KlantenHomeController::class, 'index']);
