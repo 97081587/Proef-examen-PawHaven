@@ -1,6 +1,7 @@
 <script setup>
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 
 const form = useForm({
     customer_number: "",
@@ -8,20 +9,24 @@ const form = useForm({
     password: "",
 });
 
-const login = async () => {
-  try {
-    const res = await axios.post('/api/login', {
-      email: email.value,
-      password: password.value
+
+const submit = () => {
+    // Valideer eventueel eerst front-end
+    if (!form.email && !form.customer_number) {
+        alert("Vul e-mail of klantnummer in.");
+        return;
+    }
+    
+    form.post("/api/login", {
+        onSuccess: () => {
+            // redirect naar home na login
+            form.reset(); // formulier resetten
+            Inertia.visit("/");
+        },
+        onError: (errors) => {
+            console.log(errors); // optioneel debug
+        },
     });
-
-    localStorage.setItem('token', res.data.token);
-
-    window.location.href = '/';
-
-  } catch (error) {
-    console.error(error.response.data);
-  }
 };
 </script>
 
@@ -44,7 +49,7 @@ const login = async () => {
                     <div class="">
                         <!-- log in with klantnummer -->
                         <form
-                            @submit.prevent="login"
+                            @submit.prevent="submit"
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
                         >
                             <div>
@@ -72,7 +77,7 @@ const login = async () => {
 
                         <!-- log in with email + passwoord -->
                         <form
-                            @submit.prevent="login"
+                            @submit.prevent="submit"
                             class="flex flex-col z-40 relative ml-10 mr-10"
                         >
                             <div>
