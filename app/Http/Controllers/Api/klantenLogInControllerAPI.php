@@ -16,16 +16,19 @@ class klantenLogInControllerAPI extends Controller
 
             $user = User::where('customer_number', $request->customer_number)->first();
 
-            if ($user) {
+            if (!$user) {
                 return response()->json([
-                    'message' => 'Succesvol ingelogd',
-                    'user' => $user
-                ]);
+                    'message' => 'Klantnummer is onjuist.'
+                ], 401);
             }
 
-            return response()->json([
-                'message' => 'Klantnummer is onjuist.'
-            ]);
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+             return response()->json([
+                    'message' => 'Succesvol ingelogd',
+                    'token' => $token,
+                    'user' => $user
+                ]);
         }
 
         // Login via email + password
@@ -36,11 +39,14 @@ class klantenLogInControllerAPI extends Controller
             if (!$user || !Hash::check($request->password, $user->password)) {
                 return response()->json([
                     'message' => 'Email of wachtwoord is onjuist.'
-                ]);
+                ], 401);
             }
+
+            $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
                 'message' => 'Succesvol ingelogd',
+                'token' => $token,
                 'user' => $user
             ]);
         }
