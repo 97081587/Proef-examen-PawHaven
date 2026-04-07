@@ -9,24 +9,20 @@ const form = useForm({
     password: "",
 });
 
-
-const submit = () => {
-    // Valideer eventueel eerst front-end
-    if (!form.email && !form.customer_number) {
-        alert("Vul e-mail of klantnummer in.");
-        return;
-    }
-    
-    form.post("/api/login", {
-        onSuccess: () => {
-            // redirect naar home na login
-            form.reset(); // formulier resetten
-            Inertia.visit("/");
-        },
-        onError: (errors) => {
-            console.log(errors); // optioneel debug
-        },
+const login = async () => {
+  try {
+    const res = await axios.post('/api/login', {
+      email: email.value,
+      password: password.value
     });
+
+    localStorage.setItem('token', res.data.token);
+
+    window.location.href = '/';
+
+  } catch (error) {
+    console.error(error.response.data);
+  }
 };
 </script>
 
@@ -49,7 +45,7 @@ const submit = () => {
                     <div class="">
                         <!-- log in with klantnummer -->
                         <form
-                            @submit.prevent="submit"
+                            @submit.prevent="login"
                             class="flex flex-col z-40 relative mt-7 ml-10 mr-10"
                         >
                             <div>
@@ -77,7 +73,7 @@ const submit = () => {
 
                         <!-- log in with email + passwoord -->
                         <form
-                            @submit.prevent="submit"
+                            @submit.prevent="login"
                             class="flex flex-col z-40 relative ml-10 mr-10"
                         >
                             <div>
