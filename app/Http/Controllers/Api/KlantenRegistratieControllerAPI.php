@@ -38,12 +38,12 @@ class KlantenRegistratieControllerAPI extends Controller
             'customer_number' => $validatedData['customer_number'],
         ]);
 
-        // $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Klant succesvol aangemaakt',
             'data' => $user,
-            // 'token' => $token
+            'token' => $token
         ], 201);
     }
 }
