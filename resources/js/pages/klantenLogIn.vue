@@ -2,6 +2,7 @@
 import logo from "../components/logo.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
+import axios from "axios";
 
 const form = useForm({
     customer_number: "",
@@ -17,16 +18,20 @@ const submit = () => {
         return;
     }
     
-    form.post("/api/login", {
-        onSuccess: () => {
-            // redirect naar home na login
-            form.reset(); // formulier resetten
-            Inertia.visit("/");
-        },
+    axios.post("/api/login", {
+        customer_number: form.customer_number,
+        email: form.email,
+        password: form.password
+    }).then(response => {
+        // redirect naar home na login
+        form.reset(); // formulier resetten
+        Inertia.visit("/");
+    }).catch(error => {
+        console.log(error); // optioneel debug
+    });
         onError: (errors) => {
             console.log(errors); // optioneel debug
-        },
-    });
+        };
 };
 </script>
 
