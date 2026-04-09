@@ -15,7 +15,7 @@ Route::post('/login', [KlantenLogInControllerAPI::class, 'login']);
 Route::post('/register', [KlantenRegistratieControllerAPI::class, 'store']);
 
 //home
-Route::post('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
+Route::delete('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
     ->middleware('auth:sanctum');
 
 //header

@@ -6,9 +6,9 @@ const deleteAccount = async () => {
   if (confirm('Weet je zeker dat je je account wilt verwijderen?')) {
 
     const token = localStorage.getItem('token');
-
+    // console.log(token);
     try {
-      await axios.post('/api/delete-account', {}, {
+      await axios.delete('/api/delete-account', {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
