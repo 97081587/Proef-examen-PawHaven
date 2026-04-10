@@ -1,95 +1,90 @@
 <script setup>
-import Header from '../layouts/header.vue';
-import axios from 'axios';
+import Header from "../layouts/header.vue";
+import axios from "axios";
 
 const deleteAccount = async () => {
-  if (confirm('Weet je zeker dat je je account wilt verwijderen?')) {
+    if (confirm("Weet je zeker dat je je account wilt verwijderen?")) {
+        const token = localStorage.getItem("token");
+        console.log(token);
+        try {
+            await axios.delete("/api/delete-account", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
 
-    const token = localStorage.getItem('token');
-    console.log(token);
-    try {
-      await axios.delete('/api/delete-account', {}, {
-        headers: {
-          Authorization: `Bearer ${token}`
+            window.location.href = "/login";
+        } catch (error) {
+            console.error(error.response?.data);
         }
-      });
-
-      window.location.href = '/login';
-
-    } catch (error) {
-      console.error(error.response?.data);
     }
-  }
 };
 </script>
 
 <template>
-  <div
-    class="w-full h-screen bg-cover bg-center relative"
-    style="background-image: url('/img/backgroundImage.jpg');"
-  >
-    <!-- طبقة شفافة / Transparent layer-->
-    <div class="absolute inset-0 bg-black/25"></div>
+    <div
+        class="w-full h-screen bg-cover bg-center relative"
+        style="background-image: url(&quot;/img/backgroundImage.jpg&quot;)"
+    >
+        <!-- طبقة شفافة / Transparent layer-->
+        <div class="absolute inset-0 bg-black/25"></div>
 
-    <!-- المحتوى / Content-->
-    <div class="relative z-10 h-full flex flex-col text-white">
+        <!-- المحتوى / Content-->
+        <div class="relative z-10 h-full flex flex-col text-white">
+            <!-- Header -->
+            <Header />
 
-      <!-- Header -->
-      <Header />
+            <!-- البوكسات / boxes-->
+            <div class="flex justify-center items-center flex-1 gap-20">
+                <!-- Box 1 -->
+                <div class="glass-box">
+                    <div class="icon">✏</div>
+                    <p>Mijn merk voorkeuren</p>
+                </div>
 
-      <!-- البوكسات / boxes-->
-      <div class="flex justify-center items-center flex-1 gap-20">
+                <!-- Box 2 -->
+                <div class="glass-box">
+                    <div class="icon">🐾</div>
+                    <p>Mijn huisdieren</p>
+                </div>
 
-        <!-- Box 1 -->
-        <div class="glass-box">
-          <div class="icon">✏</div>
-          <p>Mijn merk voorkeuren</p>
+                <!-- Box 3 -->
+                <div class="glass-box" @click="deleteAccount">
+                    <div class="icon">❌</div>
+                    <p>Account verwijderen</p>
+                </div>
+            </div>
         </div>
-
-        <!-- Box 2 -->
-        <div class="glass-box">
-          <div class="icon">🐾</div>
-          <p>Mijn huisdieren</p>
-        </div>
-
-        <!-- Box 3 -->
-        <div class="glass-box" @click="deleteAccount">
-          <div class="icon">❌</div>
-          <p>Account verwijderen</p>
-        </div>
-
-      </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
 .font-delius {
-  font-family: 'Delius', cursive;
+    font-family: "Delius", cursive;
 }
 
 /* Glass effect */
 .glass-box {
-  width: 300px;
-  height: 300px;
-  border-radius: 40px;
-  backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  transition: 0.3s ease;
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: 0.3s ease;
 }
 
 .glass-box:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .icon {
-  font-size: 70px;
-  margin-bottom: 20px;
+    font-size: 70px;
+    margin-bottom: 20px;
 }
 </style>
