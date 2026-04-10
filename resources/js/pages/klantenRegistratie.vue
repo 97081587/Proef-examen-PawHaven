@@ -32,6 +32,8 @@ const submit = async () => {
       customer_number: form.regiCustomerNumber
     });
 
+    localStorage.setItem('token', response.data.token);
+
     Inertia.visit("/");
 
     // alert(response.data.message); // success message
