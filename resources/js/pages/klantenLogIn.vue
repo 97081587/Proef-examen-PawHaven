@@ -10,6 +10,9 @@ const form = useForm({
     password: "",
 });
 
+// const response = await axios.post('/api/register', form);
+
+// localStorage.setItem('token', response.data.token);
 
 const submit = () => {
     // Valideer eventueel eerst front-end
