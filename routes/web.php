@@ -14,3 +14,7 @@ Route::get('/registratie', [KlantenRegistratieController::class, 'index']);
 
 //home
 Route::get('/', [KlantenHomeController::class, 'index']);
+
+//admin login
+
+//admin home
