@@ -17,35 +17,16 @@ const submit = async () => {
         return;
     }
 
-    // axios
-    //     .post("/api/login", {
-    //         customer_number: form.customer_number,
-    //         email: form.email,
-    //         password: form.password,
-    //     })
-    //     .then((response) => {
-    //         // redirect naar home na login
-    //         form.reset(); // formulier resetten
-    //         localStorage.setItem("token", response.data.token);
-    //         Inertia.visit("/");
-    //     })
-    //     .catch((error) => {
-    //         console.log(error); // optioneel debug
-    //     });
-    // onError: (errors) => {
-    //     console.log(errors); // optioneel debug
-    // };
-
-      try {
+    try {
         const response = await axios.post("/api/login", {
             customer_number: form.customer_number,
             email: form.email,
             password: form.password,
         });
 
-        console.log(response.data);
+        // console.log(response.data);
 
-        // ⚠️ check token exists
+        //  check token exists
         if (response.data.token) {
             localStorage.setItem("token", response.data.token);
         } else {
@@ -54,7 +35,6 @@ const submit = async () => {
 
         form.reset();
         Inertia.visit("/");
-
     } catch (error) {
         console.log(error.response?.data || error);
         alert("Login mislukt");
