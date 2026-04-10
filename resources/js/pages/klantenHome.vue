@@ -5,7 +5,7 @@ import axios from "axios";
 const deleteAccount = async () => {
     if (confirm("Weet je zeker dat je je account wilt verwijderen?")) {
         const token = localStorage.getItem("token");
-        console.log(token);
+        // console.log(token);
         try {
             await axios.delete("/api/delete-account", {
                 headers: {
