@@ -10,9 +10,7 @@ const form = useForm({
     password: "",
 });
 
-// const response = await axios.post('/api/register', form);
-
-// localStorage.setItem('token', response.data.token);
+const response = await axios.post("/api/register", form);
 
 const submit = () => {
     // Valideer eventueel eerst front-end
@@ -20,21 +18,25 @@ const submit = () => {
         alert("Vul e-mail of klantnummer in.");
         return;
     }
-    
-    axios.post("/api/login", {
-        customer_number: form.customer_number,
-        email: form.email,
-        password: form.password
-    }).then(response => {
-        // redirect naar home na login
-        form.reset(); // formulier resetten
-        Inertia.visit("/");
-    }).catch(error => {
-        console.log(error); // optioneel debug
-    });
-        onError: (errors) => {
-            console.log(errors); // optioneel debug
-        };
+
+    axios
+        .post("/api/login", {
+            customer_number: form.customer_number,
+            email: form.email,
+            password: form.password,
+        })
+        .then((response) => {
+            // redirect naar home na login
+            form.reset(); // formulier resetten
+            localStorage.setItem("token", response.data.token);
+            Inertia.visit("/");
+        })
+        .catch((error) => {
+            console.log(error); // optioneel debug
+        });
+    onError: (errors) => {
+        console.log(errors); // optioneel debug
+    };
 };
 </script>
 

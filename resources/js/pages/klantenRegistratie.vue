@@ -32,8 +32,6 @@ const submit = async () => {
       customer_number: form.regiCustomerNumber
     });
 
-    // const response = await axios.post('/api/register', form);
-
     localStorage.setItem('token', response.data.token);
 
     Inertia.visit("/");
