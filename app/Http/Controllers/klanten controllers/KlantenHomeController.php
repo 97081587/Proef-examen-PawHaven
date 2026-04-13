@@ -12,4 +12,3 @@ class klantenHomeController extends Controller
         return Inertia::render('klantenHome');
     }
 }
-
