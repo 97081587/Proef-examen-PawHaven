@@ -14,6 +14,7 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
         <!-- Content-->
         <div class="relative z-10 h-full flex flex-col text-white">
             <HeaderAdmin />
+            <div class=""></div>
         </div>
     </div>
 </template>
