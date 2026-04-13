@@ -3,8 +3,6 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KlantenController;
-// use App\Http\Controllers\LogInController;
-// use App\Http\Controllers\KlantenHomeController;
 use App\Http\Controllers\AdminPanelController;
 
 //login
