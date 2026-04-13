@@ -9,7 +9,7 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
         style="background-image: url(&quot;/img/backgroundImage.jpg&quot;)"
     >
         <!-- Transparent layer-->
-        <div class="absolute inset-0 bg-red-500/25"></div>
+        <div class="absolute inset-0 bg-red-600/25"></div>
 
         <!-- Content-->
         <div class="relative z-10 h-full flex flex-col text-white">

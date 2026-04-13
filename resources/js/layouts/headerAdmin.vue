@@ -15,7 +15,7 @@ const logOut = () => {
     <!-- Header -->
     <div class="flex justify-between items-center px-12 py-8">
         <div>
-            <p class="text-sm text-yellow-300 text-right">Admin panel</p>
+            <p class="text-sm text-yellow-400 text-right">Admin panel</p>
             <h1 class="text-4xl font-delius"><a href="/">PawHaven</a></h1>
         </div>
         <div class="text-right">
