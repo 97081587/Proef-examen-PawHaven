@@ -2,19 +2,19 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KlantenRegistratieController;
-use App\Http\Controllers\LogInController;
-use App\Http\Controllers\KlantenHomeController;
+use App\Http\Controllers\KlantenController;
+// use App\Http\Controllers\LogInController;
+// use App\Http\Controllers\KlantenHomeController;
 use App\Http\Controllers\AdminPanelController;
 
 //login
-Route::get('/login', [LogInController::class, 'index'])->name('login');
+Route::get('/login', [KlantenController::class, 'klantenLogIn'])->name('login');
 
 //registratie
-Route::get('/registratie', [KlantenRegistratieController::class, 'index']);
+Route::get('/registratie', [KlantenController::class, 'klantenRegistratie']);
 
 //home
-Route::get('/', [KlantenHomeController::class, 'index']);
+Route::get('/', [KlantenController::class, 'index']);
 
 //admin panel
 Route::get('/admin', [AdminPanelController::class, 'index']);
