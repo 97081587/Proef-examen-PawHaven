@@ -123,7 +123,7 @@ const submit = async () => {
                                 >Nog geen klant? • Registreren</a
                             >
                             <br />
-                            <a href="/login">Inloggen als admin</a>
+                            <a href="/admin">Inloggen als admin</a>
                         </div>
                     </div>
                 </div>
