@@ -1,6 +1,6 @@
 <script setup>
 import Header from "../layouts/header.vue";
-import axios from "axios";
+// import axios from "axios";
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import axios from "axios";
 
         <!-- المحتوى / Content-->
         <div class="relative z-10 h-full flex flex-col text-white">
-    <Header />
-            </div>
+            <Header />
         </div>
+    </div>
 </template>
