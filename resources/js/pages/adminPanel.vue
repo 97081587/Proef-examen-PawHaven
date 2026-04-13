@@ -1,5 +1,5 @@
 <script setup>
-import Header from "../layouts/header.vue";
+import HeaderAdmin from "../layouts/headerAdmin.vue";
 // import axios from "axios";
 </script>
 
@@ -8,12 +8,12 @@ import Header from "../layouts/header.vue";
         class="w-full h-screen bg-cover bg-center relative"
         style="background-image: url(&quot;/img/backgroundImage.jpg&quot;)"
     >
-        <!-- طبقة شفافة / Transparent layer-->
+        <!-- Transparent layer-->
         <div class="absolute inset-0 bg-black/25"></div>
 
-        <!-- المحتوى / Content-->
+        <!-- Content-->
         <div class="relative z-10 h-full flex flex-col text-white">
-            <Header />
+            <HeaderAdmin />
         </div>
     </div>
 </template>
