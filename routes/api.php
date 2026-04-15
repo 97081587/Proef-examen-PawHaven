@@ -23,4 +23,4 @@ Route::delete('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
 Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->middleware('auth:sanctum');
 
 //admin panel
-Route::post('/admin', [AdminPanelControllerAPI::class, 'index']);
+Route::post('/admin', [AdminPanelControllerAPI::class, 'fetchAll']);

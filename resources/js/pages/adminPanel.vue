@@ -17,7 +17,9 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
             <div class="flex justify-center top-20 relative">
                 <div
                     class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1200px] h-[547px] backdrop-blur-[30px]"
-                ></div>
+                >
+          
+                </div>
             </div>
         </div>
     </div>
