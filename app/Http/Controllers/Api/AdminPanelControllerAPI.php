@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -12,9 +11,12 @@ class AdminPanelControllerAPI extends BaseController
     {
         // Fetch all data for the admin panel
         $data = [
-            'users' => \App\Models\User::all(),
-            // 'orders' => \App\Models\Order::all(),
-            // 'products' => \App\Models\Product::all(),
+            'users' => \App\Models\User::query()->get([
+                'first_name',
+                'last_name',
+                'phone_number',
+                'email',
+            ]),
         ];
 
         return response()->json($data);
