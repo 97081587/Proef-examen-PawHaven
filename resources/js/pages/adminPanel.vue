@@ -17,7 +17,17 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
             <div class="flex justify-center top-20 relative">
                 <div
                     class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1200px] h-[547px] backdrop-blur-[30px]"
-                ></div>
+                >
+                    <div class="flex flex-row justify-between px-30 py-5">
+                        <p>Voornaam</p>
+                        <p>Achternaam</p>
+                        <p>E-mail</p>
+                        <p>Telefoonnummer</p>
+                        <p>Acties</p>
+                    </div>
+                    <hr class="border-t border-white/40" />
+                    <!-- hier komen alle klanten in een loop -->
+                </div>
             </div>
         </div>
     </div>
