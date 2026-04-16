@@ -25,7 +25,7 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
                         <p>Telefoonnummer</p>
                         <p>Acties</p>
                     </div>
-                    <hr class="border-t border-white/40" />
+                    <hr class="border-t border-white/100" />
                     <!-- hier komen alle klanten in een loop -->
                 </div>
             </div>
