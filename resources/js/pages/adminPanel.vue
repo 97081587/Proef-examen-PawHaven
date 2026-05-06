@@ -1,5 +1,6 @@
 <script setup>
 import HeaderAdmin from "../layouts/headerAdmin.vue";
+import KlantenAdminComp from "../components/klantenAdminComp.vue";
 // import axios from "axios";
 </script>
 
@@ -27,6 +28,7 @@ import HeaderAdmin from "../layouts/headerAdmin.vue";
                     </div>
                     <hr class="border-t border-white/100" />
                     <!-- hier komen alle klanten in een loop -->
+                    <KlantenAdminComp /> 
                 </div>
             </div>
         </div>
