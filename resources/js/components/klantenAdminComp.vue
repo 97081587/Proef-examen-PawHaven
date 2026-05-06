@@ -7,9 +7,9 @@
         <p>E-mail</p>
         <p>Telefoonnummer</p>
         <div class="flex space-x-2">
-            <p>Acties</p>
-            <p>Acties</p>
-            <p>Acties</p>
+            <p>Wachtwoord resetten</p>
+            <p>Klant inactief zetten</p>
+            <p>Klantvoorkeuren bekijken</p>
         </div>
     </div>
     <hr class="border-t border-white/100" />
