@@ -7,9 +7,9 @@
         <p>E-mail</p>
         <p>Telefoonnummer</p>
         <div class="flex space-x-2">
-            <p>Wachtwoord resetten</p>
-            <p>Klant inactief zetten</p>
-            <p>Klantvoorkeuren bekijken</p>
+            <p class="z-10 rounded-[41px] border border-white bg-white/20 ">Wachtwoord resetten</p>
+            <p class="z-10 rounded-[41px] border border-white bg-white/20">Klant inactief zetten</p>
+            <p class="z-10 rounded-[41px] border border-white bg-white/20">Klantvoorkeuren bekijken</p>
         </div>
     </div>
     <hr class="border-t border-white/100" />
