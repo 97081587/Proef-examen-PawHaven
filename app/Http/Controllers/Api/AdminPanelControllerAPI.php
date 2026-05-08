@@ -8,8 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 class AdminPanelControllerAPI extends BaseController
 {
     public function fetchAll()
-    {
-        return Inertia::render('adminPanel', [
+    {   
+        return Inertia::render('AdminPanel', [
             'users' => \App\Models\User::query()->get([
                 'first_name',
                 'last_name',

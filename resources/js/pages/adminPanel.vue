@@ -1,7 +1,7 @@
 <script setup>
 import HeaderAdmin from "../layouts/headerAdmin.vue";
 import KlantenAdminComp from "../components/klantenAdminComp.vue";
- defineProps({
+defineProps({
     users: Array,
 });
 </script>
@@ -32,9 +32,9 @@ import KlantenAdminComp from "../components/klantenAdminComp.vue";
                     </div>
 
                     <hr class="border-t border-white/100" />
-                    <!-- hier komen alle klanten in een loop -->
+
                     <KlantenAdminComp
-                        v-for ="user in users"
+                        v-for="user in users"
                         :key="user.email"
                         :first_name="user.first_name"
                         :last_name="user.last_name"
