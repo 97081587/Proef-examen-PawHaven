@@ -1,7 +1,9 @@
 <script setup>
 import HeaderAdmin from "../layouts/headerAdmin.vue";
 import KlantenAdminComp from "../components/klantenAdminComp.vue";
-// import axios from "axios";
+defineProps({
+    users: Array,
+});
 </script>
 
 <template>
@@ -19,16 +21,26 @@ import KlantenAdminComp from "../components/klantenAdminComp.vue";
                 <div
                     class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1200px] h-[547px] backdrop-blur-[30px]"
                 >
-                    <div class="flex flex-row justify-between px-30 py-5">
+                    <div class="flex flex-row justify-around px-30 py-5">
                         <p>Voornaam</p>
                         <p>Achternaam</p>
                         <p>E-mail</p>
                         <p>Telefoonnummer</p>
-                        <p>Acties</p>
+                        <div class="flex flex-row">
+                            <p>Acties</p>
+                        </div>
                     </div>
+
                     <hr class="border-t border-white/100" />
-                    <!-- hier komen alle klanten in een loop -->
-                    <KlantenAdminComp /> 
+
+                    <KlantenAdminComp
+                        v-for="user in users"
+                        :key="user.email"
+                        :first_name="user.first_name"
+                        :last_name="user.last_name"
+                        :email="user.email"
+                        :phone_number="user.phone_number"
+                    />
                 </div>
             </div>
         </div>

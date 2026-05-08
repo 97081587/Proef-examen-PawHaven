@@ -15,4 +15,4 @@ Route::get('/registratie', [KlantenController::class, 'klantenRegistratie']);
 Route::get('/', [KlantenController::class, 'index']);
 
 //admin panel
-Route::get('/admin', [AdminPanelController::class, 'index']);
+Route::get('/admin', [AdminPanelController::class, 'fetchAllIndex']);
