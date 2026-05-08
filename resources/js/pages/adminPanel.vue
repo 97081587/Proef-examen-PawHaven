@@ -19,16 +19,24 @@ import KlantenAdminComp from "../components/klantenAdminComp.vue";
                 <div
                     class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1200px] h-[547px] backdrop-blur-[30px]"
                 >
-                    <div class="flex flex-row justify-between px-30 py-5">
+                    <div class="flex flex-row justify-around px-30 py-5">
                         <p>Voornaam</p>
                         <p>Achternaam</p>
                         <p>E-mail</p>
                         <p>Telefoonnummer</p>
-                        <p>Acties</p>
+                        <div class="flex flex-row">
+                            <p>Acties</p>
+                        </div>
                     </div>
+
                     <hr class="border-t border-white/100" />
                     <!-- hier komen alle klanten in een loop -->
-                    <KlantenAdminComp /> 
+                    <KlantenAdminComp
+                        :first_name="customer.first_name"
+                        :last_name="customer.last_name"
+                        :email="customer.email"
+                        :phone_number="customer.phone_number"
+                    />
                 </div>
             </div>
         </div>
