@@ -1,7 +1,6 @@
 <script setup>
 import HeaderAdmin from "../layouts/headerAdmin.vue";
 import KlantenAdminComp from "../components/klantenAdminComp.vue";
-// import axios from "axios";
  defineProps({
     users: Array,
 });
