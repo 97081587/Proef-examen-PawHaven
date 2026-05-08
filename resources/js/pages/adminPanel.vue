@@ -36,9 +36,10 @@ import KlantenAdminComp from "../components/klantenAdminComp.vue";
                     <!-- hier komen alle klanten in een loop -->
                     <KlantenAdminComp
                         v-for ="user in users"
+                        :key="user.email"
                         :first_name="user.first_name"
                         :last_name="user.last_name"
-                        :key="user.email"
+                        :email="user.email"
                         :phone_number="user.phone_number"
                     />
                 </div>
