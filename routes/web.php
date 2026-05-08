@@ -3,8 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KlantenController;
-// use App\Http\Controllers\AdminPanelController;
-use App\Http\Controllers\Api\AdminPanelControllerAPI;
+use App\Http\Controllers\AdminPanelController;
 
 //login
 Route::get('/login', [KlantenController::class, 'klantenLogIn'])->name('login');
@@ -16,5 +15,4 @@ Route::get('/registratie', [KlantenController::class, 'klantenRegistratie']);
 Route::get('/', [KlantenController::class, 'index']);
 
 //admin panel
-// Route::get('/admin', [AdminPanelController::class, 'index']);
-Route::get('/admin', [AdminPanelControllerAPI::class, 'fetchAll']);
+Route::get('/admin', [AdminPanelController::class, 'fetchAllIndex']);
