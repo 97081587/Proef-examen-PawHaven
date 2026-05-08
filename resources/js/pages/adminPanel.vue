@@ -2,8 +2,9 @@
 import HeaderAdmin from "../layouts/headerAdmin.vue";
 import KlantenAdminComp from "../components/klantenAdminComp.vue";
 // import axios from "axios";
-// import { ref } from "vue";
-
+ defineProps({
+    users: Array,
+});
 </script>
 
 <template>
@@ -34,10 +35,11 @@ import KlantenAdminComp from "../components/klantenAdminComp.vue";
                     <hr class="border-t border-white/100" />
                     <!-- hier komen alle klanten in een loop -->
                     <KlantenAdminComp
-                        :first_name="customer.first_name"
-                        :last_name="customer.last_name"
-                        :email="customer.email"
-                        :phone_number="customer.phone_number"
+                        v-for ="user in users"
+                        :first_name="user.first_name"
+                        :last_name="user.last_name"
+                        :key="user.email"
+                        :phone_number="user.phone_number"
                     />
                 </div>
             </div>
