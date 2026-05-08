@@ -9,7 +9,7 @@ class AdminPanelControllerAPI extends BaseController
 {
     public function fetchAll()
     {
-        return Inertia::render('AdminPanel', [
+        return Inertia::render('adminPanel', [
             'users' => \App\Models\User::query()->get([
                 'first_name',
                 'last_name',
