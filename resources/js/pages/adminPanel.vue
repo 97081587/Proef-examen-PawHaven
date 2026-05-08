@@ -2,6 +2,8 @@
 import HeaderAdmin from "../layouts/headerAdmin.vue";
 import KlantenAdminComp from "../components/klantenAdminComp.vue";
 // import axios from "axios";
+// import { ref } from "vue";
+
 </script>
 
 <template>
