@@ -17,17 +17,17 @@ defineProps({
         <p>{{ phone_number }}</p>
         <div class="flex space-x-2">
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
             >
                 Wachtwoord resetten
             </button>
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
             >
                 Klant inactief zetten
             </button>
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
             >
                 Klantvoorkeuren bekijken
             </button>
