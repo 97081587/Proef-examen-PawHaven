@@ -9,7 +9,7 @@ defineProps({
 });
 
 const deleteAccount = async () => {
-    if (confirm("Weet je zeker dat je je account wilt verwijderen?")) {
+    if (confirm("Weet je zeker dat je dit account wilt verwijderen?")) {
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
