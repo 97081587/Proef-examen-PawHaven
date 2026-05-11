@@ -7,6 +7,24 @@ defineProps({
     email: String,
     phone_number: String,
 });
+
+const deleteAccount = async () => {
+    if (confirm("Weet je zeker dat je dit account wilt verwijderen?")) {
+        const token = localStorage.getItem("token");
+        // console.log(token);
+        try {
+            await axios.delete("/api/delete-account", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            window.location.href = "/admin";
+        } catch (error) {
+            console.error(error.response?.data);
+        }
+    }
+};
 </script>
 
 <template>
@@ -17,17 +35,17 @@ defineProps({
         <p>{{ phone_number }}</p>
         <div class="flex space-x-2">
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
             >
                 Wachtwoord resetten
             </button>
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs" @click="deleteAccount"
             >
                 Klant inactief zetten
             </button>
             <button
-                class="z-10 rounded-[41px] border border-white bg-white/20 text-xs"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
             >
                 Klantvoorkeuren bekijken
             </button>
