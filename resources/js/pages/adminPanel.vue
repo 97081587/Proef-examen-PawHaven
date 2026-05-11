@@ -26,11 +26,8 @@ defineProps({
                         <p>Achternaam</p>
                         <p>E-mail</p>
                         <p>Telefoonnummer</p>
-                        <!-- <div class="flex flex-row">
-                            <p>Acties</p>
-                        </div> -->
+                        <p class="ml-40">Acties</p>
                     </div>
-
                     <hr class="border-t border-white/100" />
                     <div class="overflow-auto h-110">
                         <KlantenAdminComp
