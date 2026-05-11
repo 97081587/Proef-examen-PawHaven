@@ -32,15 +32,16 @@ defineProps({
                     </div>
 
                     <hr class="border-t border-white/100" />
-
-                    <KlantenAdminComp
-                        v-for="user in users"
-                        :key="user.email"
-                        :first_name="user.first_name"
-                        :last_name="user.last_name"
-                        :email="user.email"
-                        :phone_number="user.phone_number"
-                    />
+                    <div class="overflow-auto h-110">
+                        <KlantenAdminComp
+                            v-for="user in users"
+                            :key="user.email"
+                            :first_name="user.first_name"
+                            :last_name="user.last_name"
+                            :email="user.email"
+                            :phone_number="user.phone_number"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
