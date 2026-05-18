@@ -32,7 +32,8 @@ defineProps({
                     <div class="overflow-auto h-110">
                         <KlantenAdminComp
                             v-for="user in users"
-                            :key="user.email"
+                            :key="user.id"
+                            :id="user.id"
                             :first_name="user.first_name"
                             :last_name="user.last_name"
                             :email="user.email"

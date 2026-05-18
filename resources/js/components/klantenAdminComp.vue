@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 defineProps({
+    id: Number,
     first_name: String,
     last_name: String,
     email: String,
@@ -61,7 +62,7 @@ const deleteAccount = async (id) => {
             </button>
             <button
                 class="rounded-[41px] border border-white bg-white/20 text-xs"
-                @click="deleteAccount(user.id)"
+                @click="deleteAccount(id)"
             >
                 Klant inactief zetten
             </button>
