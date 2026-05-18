@@ -13,7 +13,7 @@ const deleteAccount = async () => {
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
-            await axios.delete("/api/delete-account", {
+            await axios.delete(`/admin/delete-klant/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
