@@ -21,9 +21,9 @@ class klantenHomeControllerAPI extends Controller
         }
 
         $user->update([
-            'first_name' => 'deleted',
-            'last_name' => 'deleted',
-            'phone_number' => 'deleted',
+            'first_name' => 'deleted_user',
+            'last_name' => 'deleted_user',
+            'phone_number' => 'deleted_user',
             'email' => 'deleted_' . $user->id . '@anon.local', // unique email to prevent conflicts
             'customer_number' => 'anon_' . $user->id,
             // 'password' => bcrypt($user->password), // optional, already hashed
