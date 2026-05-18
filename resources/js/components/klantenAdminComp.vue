@@ -2,18 +2,24 @@
 import { ref } from "vue";
 
 defineProps({
+    id: Number,
     first_name: String,
     last_name: String,
     email: String,
     phone_number: String,
 });
 
-const deleteAccount = async () => {
-    if (confirm("Weet je zeker dat je dit account wilt verwijderen?")) {
+const deleteAccount = async (id) => {
+    const confirmed = confirm(
+        "Weet je zeker dat je dit account wilt verwijderen?",
+    );
+
+    if (!confirmed) return;
+
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
-            await axios.delete("/api/delete-account", {
+            await axios.delete("/admin/delete-klant", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -21,18 +27,33 @@ const deleteAccount = async () => {
 
             window.location.href = "/admin";
         } catch (error) {
-            console.error(error.response?.data);
+            console.error(error.response?.data || error.message);
         }
-    }
-};
+    };
 </script>
 
 <template>
-    <div class="flex flex-row justify-between px-30 py-5">
-        <p>{{ first_name }}</p>
-        <p>{{ last_name }}</p>
-        <p>{{ email }}</p>
-        <p>{{ phone_number }}</p>
+    <td class="flex flex-row justify-between px-30 py-5">
+        <tr>
+            {{
+                first_name
+            }}
+        </tr>
+        <tr>
+            {{
+                last_name
+            }}
+        </tr>
+        <tr>
+            {{
+                email
+            }}
+        </tr>
+        <tr>
+            {{
+                phone_number
+            }}
+        </tr>
         <div class="flex space-x-2">
             <button
                 class="rounded-[41px] border border-white bg-white/20 text-xs"
@@ -40,7 +61,8 @@ const deleteAccount = async () => {
                 Wachtwoord resetten
             </button>
             <button
-                class="rounded-[41px] border border-white bg-white/20 text-xs" @click="deleteAccount"
+                class="rounded-[41px] border border-white bg-white/20 text-xs"
+                @click="deleteAccount(id)"
             >
                 Klant inactief zetten
             </button>
@@ -50,6 +72,6 @@ const deleteAccount = async () => {
                 Klantvoorkeuren bekijken
             </button>
         </div>
-    </div>
+    </td>
     <hr class="border-t border-white/100" />
 </template>
