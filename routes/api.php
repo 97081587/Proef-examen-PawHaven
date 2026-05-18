@@ -22,5 +22,5 @@ Route::delete('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
 Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->middleware('auth:sanctum');
 
 //admin panel
-Route::delete('/admin/delete-klant/{id}', [adminKlantenDeleteControllerAPI::class, 'destroy'])
+Route::delete('/admin/delete-klant', [adminKlantenDeleteControllerAPI::class, 'destroy'])
     ->middleware('auth:sanctum');
