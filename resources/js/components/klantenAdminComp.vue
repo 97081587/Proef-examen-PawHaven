@@ -61,7 +61,7 @@ const deleteAccount = async (id) => {
             </button>
             <button
                 class="rounded-[41px] border border-white bg-white/20 text-xs"
-                @click="deleteAccount"
+                @click="deleteAccount(user.id)"
             >
                 Klant inactief zetten
             </button>

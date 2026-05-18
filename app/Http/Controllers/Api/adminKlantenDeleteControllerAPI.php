@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,14 +12,7 @@ class adminKlantenDeleteControllerAPI extends Controller
         // alle data wordt geanonimiseerd
     public function destroy(Request $request, $id)
     {
-        // dd(auth()->check(), auth()->user());
-        // $user = Auth::user(); // get the currently logged-in user
-        console_log($id);
-        // if (!$user) {
-        //     return response()->json([
-        //         'message' => 'Geen ingelogde gebruiker gevonden'
-        //     ], 401);
-        // }
+        $user = UserfindOrFail($id);
 
         $user->update([
             'first_name' => 'deleted',
