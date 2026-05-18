@@ -13,7 +13,7 @@ class adminKlantenDeleteControllerAPI extends Controller
     {
         // dd(auth()->check(), auth()->user());
         // $user = Auth::user(); // get the currently logged-in user
-        
+        console_log($id);
         // if (!$user) {
         //     return response()->json([
         //         'message' => 'Geen ingelogde gebruiker gevonden'
