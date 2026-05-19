@@ -5,8 +5,8 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3'
 
 createInertiaApp({
     resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-        return pages[`./Pages/${name}.vue`].default
+        const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
+        return pages[`./pages/${name}.vue`].default
     },
     setup({ el, app, props, plugin }) {
         createApp({ render: () => h(app, props) })

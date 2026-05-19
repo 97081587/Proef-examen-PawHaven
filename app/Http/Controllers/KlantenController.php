@@ -21,4 +21,9 @@ class klantenController extends Controller
 	{
 		return Inertia::render('klantenRegistratie');
 	}
+
+	public function klantenVoorkeuren()
+	{
+		return Inertia::render('klantenVoorkeuren');
+	}
 }
