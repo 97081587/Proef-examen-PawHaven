@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 
-defineProps({
+const props = defineProps({
     id: Number,
     first_name: String,
     last_name: String,
@@ -9,7 +10,7 @@ defineProps({
     phone_number: String,
 });
 
-const deleteAccount = async (id) => {
+const deleteAccount = async () => {
     const confirmed = confirm(
         "Weet je zeker dat je dit account wilt verwijderen?",
     );
@@ -19,7 +20,8 @@ const deleteAccount = async (id) => {
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
-            await axios.delete("/admin/delete-klant", {
+            console.log(props.id);
+            await axios.delete(`/api/admin/delete-klant/${props.id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -62,7 +64,7 @@ const deleteAccount = async (id) => {
             </button>
             <button
                 class="rounded-[41px] border border-white bg-white/20 text-xs"
-                @click="deleteAccount(id)"
+                @click="deleteAccount"
             >
                 Klant inactief zetten
             </button>

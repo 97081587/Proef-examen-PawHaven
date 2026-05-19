@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class adminKlantenDeleteControllerAPI extends Controller
+class AdminKlantenDeleteControllerAPI extends Controller
 {
         // alle data wordt geanonimiseerd
     public function destroy(Request $request, $id)

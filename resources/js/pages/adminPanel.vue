@@ -29,10 +29,13 @@ defineProps({
                         <p class="ml-40">Acties</p>
                     </div>
                     <hr class="border-t border-white/100" />
-                    <div class="overflow-auto h-110">
-                        <KlantenAdminComp
-                            v-for="user in users"
-                            :key="user.id"
+                    <div
+                        class="overflow-auto h-110"
+                      
+                    >
+                        <!-- {{ user }} -->
+                        <KlantenAdminComp  v-for="user in users"
+                        :key="user.id"
                             :id="user.id"
                             :first_name="user.first_name"
                             :last_name="user.last_name"
