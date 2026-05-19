@@ -31,6 +31,7 @@ defineProps({
                     <hr class="border-t border-white/100" />
                     <div class="overflow-auto h-110">
                         <KlantenAdminComp
+                            {{ users }}
                             v-for="user in users"
                             :key="user.id"
                             :id="user.id"

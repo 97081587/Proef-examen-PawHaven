@@ -10,7 +10,7 @@ const props = defineProps({
     phone_number: String,
 });
 
-const deleteAccount = async (id) => {
+const deleteAccount = async () => {
     const confirmed = confirm(
         "Weet je zeker dat je dit account wilt verwijderen?",
     );
@@ -20,7 +20,7 @@ const deleteAccount = async (id) => {
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
-            console.log(id);
+            console.log(props.id);
             await axios.delete(`/api/admin/delete-klant/${props.id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
