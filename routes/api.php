@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\KlantenRegistratieControllerAPI;
 use App\Http\Controllers\Api\KlantenLogInControllerAPI;
 use App\Http\Controllers\Api\KlantenHomeControllerAPI;
 use App\Http\Controllers\Api\HeaderControllerAPI;
+use App\Http\Controllers\Api\AdminKlantenDeleteControllerAPI;
 
 //login
 Route::post('/login', [KlantenLogInControllerAPI::class, 'login']);
@@ -22,5 +23,5 @@ Route::delete('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
 Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->middleware('auth:sanctum');
 
 //admin panel
-Route::delete('/admin/delete-klant', [adminKlantenDeleteControllerAPI::class, 'destroy'])
+Route::delete('/admin/delete-klant', [AdminKlantenDeleteControllerAPI::class, 'destroy'])
     ->middleware('auth:sanctum');

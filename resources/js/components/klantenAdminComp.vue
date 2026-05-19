@@ -19,7 +19,7 @@ const deleteAccount = async (id) => {
         const token = localStorage.getItem("token");
         // console.log(token);
         try {
-            await axios.delete("/admin/delete-klant", {
+            await axios.delete("/api/admin/delete-klant", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
