@@ -15,7 +15,7 @@ Route::get('/registratie', [KlantenController::class, 'klantenRegistratie']);
 Route::get('/', [KlantenController::class, 'index']);
 
 //merk voorkeuren
-Route::get('/merk-voorkeuren', [KlantenController::class, 'klantenMerkVoorkeuren']);
+Route::get('/merk-voorkeuren', [KlantenController::class, 'klantenVoorkeuren']);
 
 //admin panel
 Route::get('/admin', [AdminPanelController::class, 'fetchAllIndex']);

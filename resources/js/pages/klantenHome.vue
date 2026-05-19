@@ -1,7 +1,7 @@
 <script setup>
 import Header from "../layouts/header.vue";
 import axios from "axios";
-import { useRouter } from "vue-router";
+import { Inertia } from "@inertiajs/inertia";
 
 const deleteAccount = async () => {
     if (confirm("Weet je zeker dat je je account wilt verwijderen?")) {
@@ -20,6 +20,10 @@ const deleteAccount = async () => {
         }
     }
 };
+
+const klantenVoorkeuren = () => {
+  Inertia.get('/merk-voorkeuren')
+}
 </script>
 
 <template>
@@ -38,7 +42,7 @@ const deleteAccount = async () => {
             <!-- البوكسات / boxes-->
             <div class="flex justify-center items-center flex-1 gap-20">
                 <!-- Box 1 -->
-                <div class="glass-box" @click="$router.push('/merk-voorkeuren')">
+                <div class="glass-box" @click="klantenVoorkeuren">
                     <div class="icon">✏</div>
                     <p>Mijn merk voorkeuren</p>
                 </div>
