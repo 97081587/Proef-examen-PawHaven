@@ -30,6 +30,9 @@ defineProps({
                         :breed="huisdier.breed"
                         :age="huisdier.age"
                     />
+                    <button class ="absolute bottom-5 right-5 rounded-[41px] border border-white bg-white/20 w-[130px] h-[130px] text-8xl">
+                        +
+                    </button>
                 </div>
             </div>
         </div>
