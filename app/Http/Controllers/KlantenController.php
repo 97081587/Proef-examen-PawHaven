@@ -26,4 +26,9 @@ class klantenController extends Controller
 	{
 		return Inertia::render('klantenVoorkeuren');
 	}
+
+	public function klantenHuisdieren()
+	{
+		return Inertia::render('klantenHuisdieren');
+	}
 }

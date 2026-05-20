@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\KlantenLogInControllerAPI;
 use App\Http\Controllers\Api\KlantenHomeControllerAPI;
 use App\Http\Controllers\Api\HeaderControllerAPI;
 use App\Http\Controllers\Api\AdminKlantenDeleteControllerAPI;
+use App\Http\Controllers\Api\KlantenPetsControllerAPI;
 
 //login
 Route::post('/login', [KlantenLogInControllerAPI::class, 'login']);
@@ -21,6 +22,9 @@ Route::delete('/delete-account', [KlantenHomeControllerAPI::class, 'anonymize'])
 
 //header
 Route::post('/logout', [HeaderControllerAPI::class, 'logout'])->middleware('auth:sanctum');
+
+//klanten huisdieren
+Route::get('/huisdieren', [KlantenPetsControllerAPI::class, 'fetchPets']);
 
 //admin panel
 Route::delete('/admin/delete-klant/{id}', [AdminKlantenDeleteControllerAPI::class, 'destroy'])
