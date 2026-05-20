@@ -1,9 +1,9 @@
 <script setup>
 import Header from "../layouts/header.vue";
 import huisdierComp from "../components/huisdierComp.vue";
-// defineProps({
-//     huisdieren: Array,
-// });
+defineProps({
+    huisdier: Array,
+});
 </script>
 
 <template>
