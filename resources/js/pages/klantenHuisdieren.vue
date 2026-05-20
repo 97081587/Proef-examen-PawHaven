@@ -1,0 +1,19 @@
+<script setup>
+import Header from "../layouts/header.vue";
+</script>
+
+<template>
+        <div
+        class="w-full h-screen bg-cover bg-center relative"
+        style="background-image: url(&quot;/img/backgroundImage.jpg&quot;)"
+    >
+        <!--Transparent layer-->
+        <div class="absolute inset-0 bg-black/25"></div>
+
+        <!--Content-->
+        <div class="relative z-10 h-full flex flex-col text-white">
+            <!-- Header -->
+            <Header />
+    </div>
+    </div>
+</template>

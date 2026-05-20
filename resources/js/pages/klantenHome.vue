@@ -22,8 +22,12 @@ const deleteAccount = async () => {
 };
 
 const klantenVoorkeuren = () => {
-  Inertia.get('/merk-voorkeuren')
-}
+    Inertia.get("/merk-voorkeuren");
+};
+
+const klantenHuisdieren = () => {
+    Inertia.get("/huisdieren");
+};
 </script>
 
 <template>
@@ -48,7 +52,7 @@ const klantenVoorkeuren = () => {
                 </div>
 
                 <!-- Box 2 -->
-                <div class="glass-box">
+                <div class="glass-box" @click="klantenHuisdieren">
                     <div class="icon">🐾</div>
                     <p>Mijn huisdieren</p>
                 </div>
