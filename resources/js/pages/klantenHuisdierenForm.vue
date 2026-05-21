@@ -16,13 +16,52 @@ import Header from "../layouts/header.vue";
             <Header />
             <div class="flex justify-center top-20 relative">
                 <div
-                    class="absolute z-10 rounded-[41px] border border-white bg-white/20  w-[1006px] h-[470px] backdrop-blur-[30px]"
+                    class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
                 >
-                    <form @submit.prevent="submit">
+                    <form
+                        @submit.prevent="submit"
+                        class="flex justify-center flex-row z-40 relative gap-30 mt-7"
+                    >
                         <div>
                             <div>
-
+                                <p class="text-white">naam*</p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
                             </div>
+                            <div>
+                                <p class="text-white">geboortedatum</p>
+                                <input
+                                    type="text"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                />
+                            </div>
+                            <div>
+                                <p class="text-white">soort*</p>
+                                <select
+                                    type="dropdown"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                >
+                                    <option value="">Selecteer soort</option>
+                                    <option value="hond">Hond</option>
+                                    <option value="kat">Kat</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p class="text-white">ras*</p>
+                                <select v-if="selectedSoort === 'hond'"
+                                    type="dropdown"
+                                    class="rounded-full bg-white w-full px-4 py-2"
+                                >
+                                    <option value="">Selecteer ras</option>
+                                    <option value="labrador">Labrador</option>
+                                    <option value="pers">Pers</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                Opslaan
+                            </button>
                         </div>
                     </form>
                 </div>
