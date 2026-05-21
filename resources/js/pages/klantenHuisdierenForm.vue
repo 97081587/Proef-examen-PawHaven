@@ -50,7 +50,8 @@ import Header from "../layouts/header.vue";
                             </div>
                             <div>
                                 <p class="text-white">ras*</p>
-                                <select v-if="selectedSoort === 'hond'"
+                                <select
+                                    v-if="selectedSoort === 'hond'"
                                     type="dropdown"
                                     class="rounded-full bg-white w-full px-4 py-2"
                                 >
@@ -59,9 +60,24 @@ import Header from "../layouts/header.vue";
                                     <option value="pers">Pers</option>
                                 </select>
                             </div>
+                                           <a
+                                href="/huisdieren"
+                                class="text-black opacity-[0.54]"
+                                tabindex="-1"
+                            >
+                                annuleren
+                            </a>
                         </div>
                         <div>
-                            <button type="submit" class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px] hover:scale-105 transition-transform duration-300">
+                            <img
+                                src="C:\Users\oscar\OneDrive - Deltion College\Github\Proef-examen-PawHaven\proef-examen-pawhaven\public\img\bananaCat.png"
+                                alt="Huisdier placeholder"
+                                class="w-[200px] h-[200px] rounded-full object-cover border-2 border-white"
+                            />
+                            <button
+                                type="submit"
+                                class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px] hover:scale-105 transition-transform duration-300"
+                            >
                                 Voeg huisdier toe
                             </button>
                         </div>
