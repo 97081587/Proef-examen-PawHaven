@@ -59,8 +59,10 @@ import Header from "../layouts/header.vue";
                                     <option value="pers">Pers</option>
                                 </select>
                             </div>
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                                Opslaan
+                        </div>
+                        <div>
+                            <button type="submit" class="mt-10 w-[300px] h-[120px] rounded-[41px] border border-solid border-white bg-white/20 text-white text-[25px] hover:scale-105 transition-transform duration-300">
+                                Voeg huisdier toe
                             </button>
                         </div>
                     </form>
