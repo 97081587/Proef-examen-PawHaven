@@ -21,7 +21,7 @@ const form = useForm({
             <Header />
             <div class="flex justify-center top-20 relative">
                 <div
-                    class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1006px] h-[470px] backdrop-blur-[30px]"
+                    class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[906px] h-[470px] backdrop-blur-[30px]"
                 >
                     <form
                         @submit.prevent="submit"
@@ -73,16 +73,17 @@ const form = useForm({
                                     <option value="">Selecteer ras</option>
                                     <option value="siamees">Siamees</option>
                                     <option value="maine coon">Maine Coon</option>
-                                </select>
-                                
+                                </select>                
                             </div>
-                            <a
-                                href="/huisdieren"
-                                class="text-black opacity-[0.54]"
-                                tabindex="-1"
-                            >
-                                annuleren
-                            </a>
+                            <div class="mt-5">
+                                <a
+                                    href="/huisdieren"
+                                    class="text-black opacity-[0.54]"
+                                    tabindex="-1"
+                                >
+                                    annuleren
+                                </a>
+                            </div>
                         </div>
                         <div>
                             <img
