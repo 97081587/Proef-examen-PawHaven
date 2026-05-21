@@ -75,7 +75,8 @@ const form = useForm({
                                     class="rounded-full bg-white w-full px-4 py-2 text-black"
                                 >
                                     <option value="">Selecteer ras</option>
-                                    <option value="affenpinscher">
+                                    <option v-for="dier in dieren" :value="dier.name"></option>
+                                    <!-- <option value="affenpinscher">
                                         Affenpinscher
                                     </option>
                                     <option value="afghaanse windhond">
@@ -342,7 +343,7 @@ const form = useForm({
                                     </option>
                                     <option value="zwitserse witte herder">
                                         Zwitserse Witte Herder
-                                    </option>
+                                    </option> -->
                                 </select>
                                 <select
                                     v-else-if="form.selectedSoort === 'kat'"
@@ -350,7 +351,7 @@ const form = useForm({
                                     class="rounded-full bg-white w-full px-4 py-2 text-black"
                                 >
                                     <option value="">Selecteer ras</option>
-                                    <option value="abyssijn">Abyssijn</option>
+                                    <!-- <option value="abyssijn">Abyssijn</option>
                                     <option value="american bobtail">
                                         American Bobtail
                                     </option>
@@ -477,7 +478,195 @@ const form = useForm({
                                     </option>
                                     <option value="gemengde kat">
                                         Gemengde Kat
+                                    </option> -->
+                                </select>
+                                <select
+                                    v-else-if="form.selectedSoort === 'vis'"
+                                    type="dropdown"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
+                                >
+                                    <!-- <option value="betta">Betta</option>
+                                    <option value="goudvis">Goudvis</option>
+                                    <option value="guppy">Guppy</option>
+                                    <option value="molly">Molly</option>
+                                    <option value="platy">Platy</option>
+                                    <option value="zwaarddrager">
+                                        Zwaarddrager
                                     </option>
+                                    <option value="neontetra">Neontetra</option>
+                                    <option value="kardinaaltetra">
+                                        Kardinaaltetra
+                                    </option>
+                                    <option value="zebravis">Zebravis</option>
+                                    <option value="discusvis">Discusvis</option>
+                                    <option value="maanvis">Maanvis</option>
+                                    <option value="koi karper">
+                                        Koi Karper
+                                    </option>
+                                    <option value="karper">Karper</option>
+                                    <option value="meerval">Meerval</option>
+                                    <option value="ancistrus">Ancistrus</option>
+                                    <option value="pleco">Pleco</option>
+                                    <option value="corydoras">Corydoras</option>
+                                    <option value="oscarvis">Oscarvis</option>
+                                    <option value="arowana">Arowana</option>
+                                    <option value="piranha">Piranha</option>
+                                    <option value="tilapia">Tilapia</option>
+                                    <option value="baars">Baars</option>
+                                    <option value="snoek">Snoek</option>
+                                    <option value="snoekbaars">
+                                        Snoekbaars
+                                    </option>
+                                    <option value="zalm">Zalm</option>
+                                    <option value="forel">Forel</option>
+                                    <option value="tonijn">Tonijn</option>
+                                    <option value="kabeljauw">Kabeljauw</option>
+                                    <option value="heilbot">Heilbot</option>
+                                    <option value="makreel">Makreel</option>
+                                    <option value="haring">Haring</option>
+                                    <option value="ansjovis">Ansjovis</option>
+                                    <option value="clownvis">Clownvis</option>
+                                    <option value="doktersvis">
+                                        Doktersvis
+                                    </option>
+                                    <option value="kogelvis">Kogelvis</option>
+                                    <option value="leeuwvis">Leeuwvis</option>
+                                    <option value="murene">Murene</option>
+                                    <option value="zeepaardje">
+                                        Zeepaardje
+                                    </option>
+                                    <option value="rog">Rog</option>
+                                    <option value="haai">Haai</option>
+                                    <option value="manta rog">Manta Rog</option>
+                                    <option value="papegaaivis">
+                                        Papegaaivis
+                                    </option>
+                                    <option value="engelvis">Engelvis</option>
+                                    <option value="vlindervis">
+                                        Vlindervis
+                                    </option>
+                                    <option value="damselfish">
+                                        Damselfish
+                                    </option>
+                                    <option value="gobies">Gobies</option>
+                                    <option value="blenny">Blenny</option>
+                                    <option value="wrasse">Wrasse</option>
+                                    <option value="triggerfish">
+                                        Triggerfish
+                                    </option>
+                                    <option value="surgeonfish">
+                                        Surgeonfish
+                                    </option>
+                                    <option value="mandarijnvis">
+                                        Mandarijnvis
+                                    </option>
+                                    <option value="bala haai">Bala Haai</option>
+                                    <option value="regenboogvis">
+                                        Regenboogvis
+                                    </option>
+                                    <option value="killivis">Killivis</option>
+                                    <option value="glasmeerval">
+                                        Glasmeerval
+                                    </option>
+                                    <option value="bijlzalm">Bijlzalm</option>
+                                    <option value="dwerggoerami">
+                                        Dwerggoerami
+                                    </option>
+                                    <option value="goerami">Goerami</option>
+                                    <option value="botia">Botia</option>
+                                    <option value="modderkruiper">
+                                        Modderkruiper
+                                    </option>
+                                    <option value="palingsnoek">
+                                        Palingsnoek
+                                    </option>
+                                    <option value="elektrische aal">
+                                        Elektrische Aal
+                                    </option>
+                                    <option value="steur">Steur</option>
+                                    <option value="black molly">
+                                        Black Molly
+                                    </option>
+                                    <option value="endlers guppy">
+                                        Endlers Guppy
+                                    </option>
+                                    <option value="rasbora">Rasbora</option>
+                                    <option value="harlekijn rasbora">
+                                        Harlekijn Rasbora
+                                    </option>
+                                    <option value="vuurneontetra">
+                                        Vuurneontetra
+                                    </option>
+                                    <option value="diamanttetra">
+                                        Diamanttetra
+                                    </option>
+                                    <option value="citroentetra">
+                                        Citroentetra
+                                    </option>
+                                    <option value="keizertetra">
+                                        Keizertetra
+                                    </option>
+                                    <option value="zwarte tetra">
+                                        Zwarte Tetra
+                                    </option>
+                                    <option value="penguin tetra">
+                                        Penguin Tetra
+                                    </option>
+                                    <option value="dwergcichlide">
+                                        Dwergcichlide
+                                    </option>
+                                    <option value="afrikaanse cichlide">
+                                        Afrikaanse Cichlide
+                                    </option>
+                                    <option value="jack dempsey">
+                                        Jack Dempsey
+                                    </option>
+                                    <option value="flowerhorn">
+                                        Flowerhorn
+                                    </option>
+                                    <option value="convict cichlide">
+                                        Convict Cichlide
+                                    </option>
+                                    <option value="frontosa">Frontosa</option>
+                                    <option value="mbuna">Mbuna</option>
+                                    <option value="tropheus">Tropheus</option>
+                                    <option value="ram cichlide">
+                                        Ram Cichlide
+                                    </option>
+                                    <option value="apistogramma">
+                                        Apistogramma
+                                    </option>
+                                    <option value="bichir">Bichir</option>
+                                    <option value="gar">Gar</option>
+                                    <option value="longnose gar">
+                                        Longnose Gar
+                                    </option>
+                                    <option value="arapaima">Arapaima</option>
+                                    <option value="zebra pleco">
+                                        Zebra Pleco
+                                    </option>
+                                    <option value="otocinclus">
+                                        Otocinclus
+                                    </option>
+                                    <option value="hillstream loach">
+                                        Hillstream Loach
+                                    </option>
+                                    <option value="kuhli loach">
+                                        Kuhli Loach
+                                    </option>
+                                    <option value="doornoogvis">
+                                        Doornoogvis
+                                    </option>
+                                    <option value="freshwater stingray">
+                                        Freshwater Stingray
+                                    </option>
+                                    <option value="axolotl">Axolotl</option>
+                                    <option value="garnaal">Garnaal</option>
+                                    <option value="kreeft">Kreeft</option>
+                                    <option value="slak">Slak</option>
+                                    <option value="mix vissen">
+                                        Mix Vissen
+                                    </option> -->
                                 </select>
                             </div>
                             <div class="mt-5">
