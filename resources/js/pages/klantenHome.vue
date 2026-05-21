@@ -20,14 +20,6 @@ const deleteAccount = async () => {
         }
     }
 };
-
-const klantenVoorkeuren = () => {
-    Inertia.get("/merk-voorkeuren");
-};
-
-const klantenHuisdieren = () => {
-    Inertia.get("/huisdieren");
-};
 </script>
 
 <template>
@@ -46,16 +38,16 @@ const klantenHuisdieren = () => {
             <!-- البوكسات / boxes-->
             <div class="flex justify-center items-center flex-1 gap-20">
                 <!-- Box 1 -->
-                <div class="glass-box" @click="klantenVoorkeuren">
+                <a class="glass-box" href="/merk-voorkeuren">
                     <div class="icon">✏</div>
                     <p>Mijn merk voorkeuren</p>
-                </div>
+                </a>
 
                 <!-- Box 2 -->
-                <div class="glass-box" @click="klantenHuisdieren">
+                <a class="glass-box" href="/huisdieren">
                     <div class="icon">🐾</div>
                     <p>Mijn huisdieren</p>
-                </div>
+                </a>
 
                 <!-- Box 3 -->
                 <div class="glass-box" @click="deleteAccount">
