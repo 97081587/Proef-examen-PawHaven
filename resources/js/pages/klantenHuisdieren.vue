@@ -1,9 +1,15 @@
 <script setup>
 import Header from "../layouts/header.vue";
 import huisdierComp from "../components/huisdierComp.vue";
+import { Inertia } from "@inertiajs/inertia";
+
 defineProps({
     huisdier: Array,
 });
+
+const huisdierenRegistratie = () => {
+    Inertia.get("/huisdierenRegistratie");
+};
 </script>
 
 <template>
@@ -30,7 +36,7 @@ defineProps({
                         :breed="huisdier.breed"
                         :age="huisdier.age"
                     />
-                    <button class ="absolute bottom-5 right-5 rounded-[41px] border border-white bg-white/20 w-[130px] h-[130px] text-8xl">
+                    <button class ="absolute bottom-5 right-5 rounded-[41px] border border-white bg-white/20 w-[130px] h-[130px] text-8xl" @click="huisdierenRegistratie">
                         +
                     </button>
                 </div>

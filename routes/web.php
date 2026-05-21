@@ -20,5 +20,8 @@ Route::get('/merk-voorkeuren', [KlantenController::class, 'klantenVoorkeuren']);
 //klanten huisdieren
 Route::get('/huisdieren', [KlantenController::class, 'klantenHuisdieren']);
 
+//huisdieren registratie
+Route::get('/huisdierenRegistratie', [KlantenController::class, 'klantenHuisdierenRegistratie']);
+
 //admin panel
 Route::get('/admin', [AdminPanelController::class, 'fetchAllIndex']);
