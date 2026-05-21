@@ -16,8 +16,15 @@ import Header from "../layouts/header.vue";
             <Header />
             <div class="flex justify-center top-20 relative">
                 <div
-                    class="absolute z-10 rounded-[41px] border border-white bg-white/20 w-[1200px] h-[547px] backdrop-blur-[30px]"
+                    class="absolute z-10 rounded-[41px] border border-white bg-white/20  w-[1006px] h-[470px] backdrop-blur-[30px]"
                 >
+                    <form @submit.prevent="submit">
+                        <div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
