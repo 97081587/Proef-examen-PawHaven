@@ -34,6 +34,6 @@ class klantenController extends Controller
 
 	public function klantenHuisdierenRegistratie()
 	{
-		return Inertia::render('klantenHuisdierenRegistratie');
+		return Inertia::render('klantenHuisdierenForm');
 	}
 }
