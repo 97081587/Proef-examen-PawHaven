@@ -1,5 +1,10 @@
 <script setup>
+import { useForm } from "@inertiajs/inertia-vue3";
 import Header from "../layouts/header.vue";
+
+const form = useForm({
+    selectedSoort: "",
+});
 </script>
 
 <template>
@@ -27,21 +32,22 @@ import Header from "../layouts/header.vue";
                                 <p class="text-white">naam*</p>
                                 <input
                                     type="text"
-                                    class="rounded-full bg-white w-full px-4 py-2"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
                                 />
                             </div>
                             <div>
                                 <p class="text-white">geboortedatum</p>
                                 <input
-                                    type="text"
-                                    class="rounded-full bg-white w-full px-4 py-2"
+                                    type="date"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
                                 />
                             </div>
                             <div>
                                 <p class="text-white">soort*</p>
                                 <select
                                     type="dropdown"
-                                    class="rounded-full bg-white w-full px-4 py-2"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
+                                    v-model="form.selectedSoort"
                                 >
                                     <option value="">Selecteer soort</option>
                                     <option value="hond">Hond</option>
@@ -49,18 +55,28 @@ import Header from "../layouts/header.vue";
                                 </select>
                             </div>
                             <div>
-                                <p class="text-white">ras*</p>
+                                <p v-if="form.selectedSoort !== ''" class="text-white">ras*</p>
                                 <select
-                                    v-if="selectedSoort === 'hond'"
+                                    v-if="form.selectedSoort === 'hond'"
                                     type="dropdown"
-                                    class="rounded-full bg-white w-full px-4 py-2"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
                                 >
                                     <option value="">Selecteer ras</option>
                                     <option value="labrador">Labrador</option>
                                     <option value="pers">Pers</option>
                                 </select>
+                                <select
+                                    v-else-if="form.selectedSoort === 'kat'"
+                                    type="dropdown"
+                                    class="rounded-full bg-white w-full px-4 py-2 text-black"
+                                >
+                                    <option value="">Selecteer ras</option>
+                                    <option value="siamees">Siamees</option>
+                                    <option value="maine coon">Maine Coon</option>
+                                </select>
+                                
                             </div>
-                                           <a
+                            <a
                                 href="/huisdieren"
                                 class="text-black opacity-[0.54]"
                                 tabindex="-1"
@@ -71,8 +87,8 @@ import Header from "../layouts/header.vue";
                         <div>
                             <img
                                 src="C:\Users\oscar\OneDrive - Deltion College\Github\Proef-examen-PawHaven\proef-examen-pawhaven\public\img\bananaCat.png"
-                                alt="Huisdier placeholder"
-                                class="w-[200px] h-[200px] rounded-full object-cover border-2 border-white"
+                                alt="banana peel placed on top of a cat's head (banana cat)"
+                                class="w-[175px] h-[175px] rounded-full object-cover border-2 border-white"
                             />
                             <button
                                 type="submit"
